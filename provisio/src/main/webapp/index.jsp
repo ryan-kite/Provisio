@@ -25,6 +25,8 @@ String p = (String)request.getAttribute("page");
 
 <% if (p.equals("login")) { %> <jsp:include page="login.jsp"/> <% } %>
 
+<% if (p.equals("logout")) { %> <jsp:include page="logout.jsp"/> <% } %>
+
 <% if (p.equals("lookup")) { %> <jsp:include page="lookup.jsp"/> <% } %>
 
 <% if (p.equals("register")) { %> <jsp:include page="register.jsp"/> <% } %>

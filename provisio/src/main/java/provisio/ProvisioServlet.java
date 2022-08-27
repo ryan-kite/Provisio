@@ -57,6 +57,10 @@ public class ProvisioServlet extends HttpServlet {
 			request.setAttribute("page", "login");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 		}
+		if (p.equals("/logout")) {
+			request.setAttribute("page", "logout");
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+		}
 		
 		if (p.equals("/lookup")) {
 			request.setAttribute("page", "lookup");
@@ -69,6 +73,7 @@ public class ProvisioServlet extends HttpServlet {
 		}
 		
 		if (p.equals("/reservation")) {
+			request.setAttribute("page", "reservation");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 		}
 		
