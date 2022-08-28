@@ -1,21 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
 <meta charset="UTF-8">
 <title>Provisio</title>
-</head>
-<body>
 
+<!--  TODO: ADD ICON -->
+<link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+
+<!-- INCLUDE BOOTSTRAP AND STYLES --> 
+<link 
+	rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+	crossorigin="anonymous">
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+
+<body>
 <%@ include file = "/shared/navigation.jsp" %>
 
 <%
 String p = (String)request.getAttribute("page");
 %>
 
-<h2>Page: ${page} </h2>
+<div class="alert alert-info" role="alert">Developer info: passed attribute: [ ${page} ]</div>
+
 
 <% if (p.equals("home")) { %> <jsp:include page="home.jsp"/> <% } %>
 

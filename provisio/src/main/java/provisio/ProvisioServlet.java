@@ -41,54 +41,65 @@ public class ProvisioServlet extends HttpServlet {
 		if (p.equals("/") || p.equals("")) {
 			request.setAttribute("page", "home");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/about")) {
 			request.setAttribute("page", "about");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/locations")) {
 			request.setAttribute("page", "locations");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/login")) {
 			request.setAttribute("page", "login");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		if (p.equals("/logout")) {
 			request.setAttribute("page", "logout");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/lookup")) {
 			request.setAttribute("page", "lookup");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/register")) {
 			request.setAttribute("page", "register");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/reservation")) {
 			request.setAttribute("page", "reservation");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/rewards")) {
 			request.setAttribute("page", "rewards");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		if (p.equals("/summary")) {
 			request.setAttribute("page", "summary");
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+			return;
 		}
 		
 		
 		getServletContext().getRequestDispatcher("/404.jsp").forward(request,response);
+		
 
 	}
 
