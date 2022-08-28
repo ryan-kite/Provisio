@@ -1,0 +1,48 @@
+
+// START/STOP MysQL for macOS
+mysql.server start
+mysql.server stop
+
+// LOGIN TO SQL AS ROOT
+mysql -u root -p root
+
+C:\>cd C:\Program Files\MySQL\MySQL Server 5.7\bin
+C:\Program Files\MySQL\MySQL Server 5.7\bin>mysql -u root -p 
+
+// LIST ALL USER IN DB
+SELECT User, Host FROM mysql.user; 
+
+// DROP USER
+DROP USER provisio;
+
+// CREATE USER & PASSWORD
+CREATE USER provisio IDENTIFIED BY 'Provisio';
+
+// GRANT ALL PRIVILEGES ON * . * TO student33@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO provisio;
+
+// CLOSE MYSQL SESSION
+EXIT;
+
+// GET CURRENT USER
+SELECT CURRENT_USER();
+
+// LIST ALL DB's
+show databases;
+
+// DELETE DB
+DROP DATABASE provisio;
+
+// CREATE DB
+CREATE DATABASE provisio;
+
+// USE DB
+USE provisio;
+
+// LIST ALL TABLES IN DB
+SHOW tables;
+
+
+
+
+
