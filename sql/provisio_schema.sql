@@ -63,8 +63,5 @@ CREATE TABLE Reservation (
   TotalGuests int NOT NULL,
   PointsEarned int NOT NULL,
   TotalPrice decimal(5,2),
-  PRIMARY KEY (ReservationID),
-  FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID),
-  FOREIGN KEY (CustID) REFERENCES Customer(CustID),
-  FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID)
+  PRIMARY KEY (ReservationID)
 );
