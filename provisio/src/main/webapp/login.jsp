@@ -1,3 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta charset="UTF-8">
+<title>Provisio - Locations</title>
+
+<!--  TODO: ADD ICON -->
+<link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
+
+<!-- INCLUDE STYLES --> 
+<%@ include file = "/shared/header-css.jsp" %>
+</head>
+
+<body >
+<%@ include file = "/shared/navigation.jsp" %>
+
 <!-- Custom styles for this template -->
 <style>
   .bd-placeholder-img {
@@ -53,8 +75,7 @@
 </style>
 <link href="login.css" rel="stylesheet">
 
-<body class="text-center">
-<main class="form-signin w-100 m-auto">
+<main class="form-signin w-100 m-auto text-center"">
 <form>
   <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
   <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
@@ -74,7 +95,16 @@
     </label>
   </div>
   <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+  <p class="mt-5 mb-3 text-muted">&copy; 2017â2022</p>
 </form>
 </main>
+
+<%@ include file = "/shared/footer.jsp" %>
+
+</body>
+</html>
+
+
+
+
 
