@@ -1,34 +1,58 @@
 # Provisio
 CSD 460 Capstone Project
 
-Pre-Requirements: 
-Install Server: Tomcat 9.*
-  - w/ these user permissions ... include
+### Pre-Requirements: 
+  - Install Tomcat 9.* Server
+  - must include these configs in <your-tomcat-folder>/conf/tomcat-user.xml
+  <tomcat-users>
+      <role rolename="manager-script"/>
+      <user username="user" password="user" roles="manager-script"/>
+  </tomcat-users> 
 
-Setup guide:
-TODO:
+  <user username="admin" password="admin" roles="tomcat,admin,admin-gui,manager,manager-gui"/>
+    
+### Setup Project
 
-Clone project 
-TODO: git clone {this project git}
+#### How to Clone project to your machine 
+from a command line run:
+  git clone https://github.com/ryan-kite/Provisio.git
 
-Import into eclipse: 
-TODO: how to import git project in to eclipse as dynamic web application
+#### How to Convert project to a Dynamic Web Project (if you imported it as a folder)   
+- Right click on the project properties
+- Select “Project Facets“
+- Check “Dynamic Web Module” & “Java“ > Apply & Close
 
-Run setup scripts
-TODO: sql populate scripts
+#### Alternative way to import & clone Provisio into Eclipse: 
+- File > Import > Git > Projects from Git (with smart import) > next
+- Clone URI > next
+- URI: https://github.com/ryan-kite/Provisio.git > next
+- Check main > next
+- Configure local storage: Directory: (your-directory) > next > finish 
 
-Setting up Project to Run on TomCat in Eclipse:
-provisio > run as > server 
-launches browser  (close it)
-Stop server
-now go to Server > server.xml 
-and change the path to "/"
-e.g.
-Context docBase="provisio" path="/" reloadable="true ...
-Launch project should be working now.
+#### Setting up Provisio to Run on TomCat Server in Eclipse:
+- Provisio > run as > server 
+- Launches project in browser (close it)
+- Stop server
+- Edit Servers > Tomcat >  server.xml 
+  -- and change the path to "/"
+  e.g.)
+  Context docBase="provisio" path="/" reloadable="true ...
+- Re-launch project: provisio > Run as > Run on Server
 
-Making code changes:
+#### Making code changes:
 create feature branch off of 'main'
-  - work on that 
-  - push feature branch to the repo 
-  - raise a pull request
+ensure you are on main: 
+- git status 
+- git checkout main
+Create your feature branch
+- git checkout -b rk/my-new-feature-work
+Do some work & save your work
+- git status  (to see changed files)
+- git add .   (to stage all changed file for commit)
+- git commit -m "A meaningful commit message about your work."
+- git status  (make sure all is well in the world) 
+- git push    (you push your changes to the repo)
+- notifty Ryan your branch is ready to be merged
+
+#### Run setup scripts
+TODO: sql populate scripts
