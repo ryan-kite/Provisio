@@ -42,12 +42,12 @@ from a command line run:
 #### Making code changes:
 create feature branch off of 'main'
 <<<<<<< HEAD
-ensure you are on main: 
+####ensure you are on main: 
 - git status 
 - git checkout main
-Create your feature branch
+- Create your feature branch
 - git checkout -b rk/my-new-feature-work
-Do some work & save your work
+####Do some work, save, commit and push changes.
 - git status  (to see changed files)
 - git add .   (to stage all changed file for commit)
 - git commit -m "A meaningful commit message about your work."
