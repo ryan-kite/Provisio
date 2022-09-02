@@ -20,20 +20,58 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
-<h1> Register </h1>
-<form action="/testing" method="post">
-    <input type="text" name="name"/><br>        
-    <input type="text" name="group"/>
-    <input type="text" name="pass"/>
-    <input type="submit" value="submit">            
-</form>
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-3">
+      <h4><!-- HOLDER--> </h4>
+      <p> <!-- HOLDER--> </p>
+    </div>
+    <div class="col-6 bg-light">
+      <h2 class="display-4">Register</h2>
+      <p class="lead">Create your account and get booking.</p>
+      <form action="/register" method="post">
+		  <div class="form-group">
+		    <label for="first-name">First name</label>
+		    <input type="text" class="form-control" id="first-name" name="first-name" aria-describedby="first-name-help" placeholder="Enter first name">
+		    <small id="first-name-help" class="form-text text-muted">Your favorite first name.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="last-name">Last name</label>
+		    <input type="text" class="form-control" id="last-name" name="last-name" aria-describedby="last-name-help" placeholder="Enter last name">
+         <small id="last-name-help" class="form-text text-muted">The name on your tax forms.</small>
+		  </div>
+      <div class="form-group">
+		    <label for="last-name">Email</label>
+		    <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="Enter email">
+         <small id="email-help" class="form-text text-muted">The best none spammy one.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="password1">Password</label>
+		    <input type="password" class="form-control" id="password1" name="password1" aria-describedby="password-help" placeholder="Create password">
+         <small id="password-help" class="form-text text-muted">The passwords will need to match.</small>
+		  </div>
+      <div class="form-group">
+		    <label for="password2">Password</label>
+		    <input type="password" class="form-control" id="password2" name="password2" aria-describedby="password-help2" placeholder="Verify password">
+         <small id="password-help2" class="form-text text-muted">Enter the password again to verify.</small>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Register</button>
+		</form>
+    </div>
+    <div class="col-3">
+      <h4><!-- HOLDER--> </h4>
+      <p> <!-- HOLDER--> </p>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-12">
+      <h4><!-- HOLDER--> </h4>
+      <p> <!-- HOLDER--> </p>
+    </div>
+  </div>
+</div>
 
-
-<%= request.getParameter("name")%>
-<%= request.getParameter("group")%>
-<%= request.getParameter("pass")%>
-<p>
-
+<!-- FOOTER -->
 <%@ include file = "/shared/footer.jsp" %>
 
 </body>

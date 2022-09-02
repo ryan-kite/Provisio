@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Testing
+ * Servlet implementation class Register
  */
-@WebServlet("/testing")
-public class Testing extends HttpServlet {
+@WebServlet(description = "endpoint to register new users", urlPatterns = { "/register" })
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Testing() {
+    public Register() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,32 +27,27 @@ public class Testing extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: GET").append(request.getContextPath());
-	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String name = request.getParameter("name");
-		String group = request.getParameter("group");
-		String pass = request.getParameter("pass");
+		String firstName = request.getParameter("first-name");
+		String lastName = request.getParameter("last-name");
+		String email = request.getParameter("email");
+		String password1 = request.getParameter("password1");
+		String password2 = request.getParameter("password2");
 		
-		System.out.println("POST: name: " + name);
-		System.out.println("POST: group: " + group);
-		System.out.println("POST: pass: " + pass);
-		// do logic and save to database etc.
-				
+		System.out.println("POST: firstName: " + firstName);
+		System.out.println("POST: lastName: " + lastName);
+		System.out.println("POST: email: " + email);
+		System.out.println("POST: password1: " + password1);
+		System.out.println("POST: password2: " + password2);
 		
-		// Then forward the request to a page that includes the parameter data if you want 
-		// or just send to a thank you page.
-		request.getRequestDispatcher("/register.jsp").forward(request, response); 
-		return;
-		
-//		doGet(request, response);
+		doGet(request, response);
 	}
 
 }
