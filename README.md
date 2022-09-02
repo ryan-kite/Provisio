@@ -41,6 +41,7 @@ from a command line run:
 
 #### Making code changes:
 create feature branch off of 'main'
+<<<<<<< HEAD
 ensure you are on main: 
 - git status 
 - git checkout main
@@ -56,3 +57,4 @@ Do some work & save your work
 
 #### Run setup scripts
 TODO: sql populate scripts
+
