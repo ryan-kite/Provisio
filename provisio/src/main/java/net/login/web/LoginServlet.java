@@ -14,7 +14,7 @@ import net.login.bean.LoginBean;
 import net.login.database.LoginDao;
 
 /**
- * @email Ramesh Fadatare
+ * @email Jimmy Easter
  */
 
 @WebServlet("/login")
