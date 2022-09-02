@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
-<title>Provisio - Locations</title>
+<title>Provisio - Logins</title>
 
 <!--  TODO: ADD ICON -->
 <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
@@ -75,32 +75,32 @@
 </style>
 <link href="login.css" rel="stylesheet">
 
-<main class="form-signin w-100 m-auto text-center"">
-<form>
-  <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+	<div align="center">
+		<h1>Login Form</h1>
+		<form action="<%=request.getContextPath()%>/login" method="post">
+			<table style="with: 100%">
+				<tr>
+					<td>UserName</td>
+					<td><input type="text" name="username" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<td>
+				<input type="submit" value="Submit" />
+				</td>
+				
+				<td>
+				Not A Member Yet? <a href="/register.jsp">Register</a>
+				</td>
+				<tr>
 
-  <div class="form-floating">
-    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-    <label for="floatingInput">Email address</label>
-  </div>
-  <div class="form-floating">
-    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-    <label for="floatingPassword">Password</label>
-  </div>
-
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017â2022</p>
-</form>
-</main>
-
-<%@ include file = "/shared/footer.jsp" %>
-
+			</table>
+			
+		</form>
+	</div>
+	<%@ include file = "/shared/footer.jsp" %>
 </body>
 </html>
 

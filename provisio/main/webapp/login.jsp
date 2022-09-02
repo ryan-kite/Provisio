@@ -92,7 +92,7 @@
 				</td>
 				
 				<td>
-				Not A Member Yet? <a href="/register.jsp">Register</a>
+				Not A Member Yet? <a href="regester.jsp">Register</a>
 				</td>
 				<tr>
 
