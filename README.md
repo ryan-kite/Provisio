@@ -56,6 +56,10 @@ create feature branch off of 'main'
 - git push    (you push your changes to the repo)
 - notifty Ryan your branch is ready to be merged
 
-#### Run setup scripts
-TODO: sql populate scripts
+#### Run MySQL database setup scripts
+- in the sql folder you will find files to build and populate your DB
+- open your mysql terminal or GUI if using Workbench
+- ensure you have already created user provisio user and password (see cheatsheet if needed.)
+- build the database and tables with provisio_schema.sql
+- populate the tables with provisio_populate.sql
 
