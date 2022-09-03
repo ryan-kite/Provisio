@@ -9,9 +9,9 @@ VALUES
 /* CUSTOMER */
 INSERT INTO customer (UserName, CustPass, EmailAddress, FirstName, LastName, LoyaltyPoints)
 VALUES
-  ('jporter', 'jporter123', '  @gmail.com', 'Jenny', 'Porter', 200),
-  ('jsmith', 'jmith123', 'johnsmith@gmail.com', 'John', 'Smith', 0),
-  ('jdow', 'jdow123', 'janesmith@gmail.com', 'Jane', 'Dow', 0);
+  ('jporter@gmail.com', 'jporter123', 'jporter@gmail.com', 'Jenny', 'Porter', 200),
+  ('johnsmith@gmail.com', 'jmith123', 'johnsmith@gmail.com', 'John', 'Smith', 0),
+  ('janesmith@gmail.com', 'jdow123', 'janesmith@gmail.com', 'Jane', 'Dow', 0);
 
 /* ATTRACTIONS */
 INSERT INTO attractions (Location, AttractionDesc)

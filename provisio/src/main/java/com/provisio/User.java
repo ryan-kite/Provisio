@@ -17,28 +17,16 @@ public class User {
 		this.email = email;
 		this.password = password;
 		
-		// how we set/create userName automatically.
-		String username;
-		char firstChar = this.firstName.charAt(0);
-		StringBuilder sb = new StringBuilder();
-		sb.append(firstChar);
-		sb.append(this.lastName);
-		username = sb.toString();
-		this.userName = username;
+		// username is same as the email
+		this.userName = email;
 	}
 
 	public String getUserName() {
 		return userName;
 	}
 	
-	public void setUserName() {
-		String username;
-		char firstChar = this.firstName.charAt(0);
-		StringBuilder sb = new StringBuilder();
-		sb.append(firstChar);
-		sb.append(this.lastName);
-		username = sb.toString();
-		this.userName =  username;
+	public void setUserName(String email) {
+		this.userName =  email;
 	}
 	
 	public String getFirstName() {
