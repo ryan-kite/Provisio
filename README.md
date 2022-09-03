@@ -4,12 +4,12 @@ CSD 460 Capstone Project
 ### Pre-Requirements: 
   - Install Tomcat 9.* Server
   - must include these configs in <your-tomcat-folder>/conf/tomcat-user.xml
-  <tomcat-users>
+  `<tomcat-users>
       <role rolename="manager-script"/>
       <user username="user" password="user" roles="manager-script"/>
   </tomcat-users> 
 
-  <user username="admin" password="admin" roles="tomcat,admin,admin-gui,manager,manager-gui"/>
+  <user username="admin" password="admin" roles="tomcat,admin,admin-gui,manager,manager-gui"/>`
     
 ### Setup Project
 
