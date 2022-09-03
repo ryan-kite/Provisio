@@ -7,11 +7,18 @@ VALUES
   (50.00,'PARKING');
 
 /* CUSTOMER */
+/* the passwords before encrypted (at least 8 chars and 1 upper and 1 lower)
+('jporter@gmail.com', 'Jporter123', 'jporter@gmail.com', 'Jenny', 'Porter', 200),
+('johnsmith@gmail.com', 'Jmith123', 'johnsmith@gmail.com', 'John', 'Smith', 0),
+('janesmith@gmail.com', 'Jdow1234', 'janesmith@gmail.com', 'Jane', 'Dow', 0);
+You can use the encrypt/decrypt code here: (from GfG)
+https://replit.com/@RyanKite/encrypt#Main.java
+ */
 INSERT INTO customer (UserName, CustPass, EmailAddress, FirstName, LastName, LoyaltyPoints)
 VALUES
-  ('jporter@gmail.com', 'jporter123', 'jporter@gmail.com', 'Jenny', 'Porter', 200),
-  ('johnsmith@gmail.com', 'jmith123', 'johnsmith@gmail.com', 'John', 'Smith', 0),
-  ('janesmith@gmail.com', 'jdow123', 'janesmith@gmail.com', 'Jane', 'Dow', 0);
+  ('jporter@gmail.com', 'VjXOcZ+VBT8y6j5WIfSHmQ==', 'jporter@gmail.com', 'Jenny', 'Porter', 200),
+  ('johnsmith@gmail.com', 'zzWtv8sumgXR2hZDbVx57Q==', 'johnsmith@gmail.com', 'John', 'Smith', 0),
+  ('janesmith@gmail.com', 'mrH2Li+bb32pvfXxA4RXXg==', 'janesmith@gmail.com', 'Jane', 'Dow', 0);
 
 /* ATTRACTIONS */
 INSERT INTO attractions (Location, AttractionDesc)
