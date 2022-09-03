@@ -1,5 +1,7 @@
 package net.login.web;
 
+import com.security.AES;
+
 import java.io.IOException;
 
 
@@ -33,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUsername(username);
-		loginBean.setPassword(password);
+		loginBean.setPassword(AES.encrypt(password));
 
 		try {
 			if (loginDao.validate(loginBean)) {

@@ -1,5 +1,7 @@
 package com.provisio;
 
+import com.security.AES;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,18 +47,32 @@ public class Register extends HttpServlet {
 		if (password1.equals(password2)) {
 			 password = password1;
 		} else {
-			 password = "didNotMatch";
+			 password = "didNotMatch"; // return error but this should never happen b/c frontend validation.
 		}
+		
+		  // Create String variables
+//	    String originalString = "GeeksforGeeks";
+//
+//	    // Call encryption method
+//	    String encryptedString = AES.encrypt(originalString);
+//
+//	    // Call decryption method
+//	    String decryptedString = AES.decrypt(encryptedString);
+//
+//	    // Print all strings
+//	    System.out.println(originalString);
+//	    System.out.println(encryptedString);
+//	    System.out.println(decryptedString);
 		
 		System.out.println("POST: firstName: " + firstName);
 		System.out.println("POST: lastName: " + lastName);
 		System.out.println("POST: email: " + email);
-		System.out.println("POST: password1: " + password1);
-		System.out.println("POST: password2: " + password2);
+//		System.out.println("POST: password1: " + password1);
+//		System.out.println("POST: password2: " + password2);
 		System.out.println("POST: password: " + password);
 		
 		// create a new User object 
-		User user = new User(firstName, lastName, email, password);
+		User user = new User(firstName, lastName, email, AES.encrypt(password));
 		
 		// create register Dao
 		RegisterDao rDao = new RegisterDao();
