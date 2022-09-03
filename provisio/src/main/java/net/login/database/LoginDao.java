@@ -13,10 +13,10 @@ public class LoginDao {
 	public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
 		boolean status = false;
 
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		try (Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/provisio?useSSL=false", "provisio", "Provisio");
+				.getConnection("jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio", "Provisio");
 
 				// Step 2:Create a statement using connection object
 				PreparedStatement preparedStatement = connection

@@ -41,6 +41,6 @@ INSERT INTO reservation (ReservationID, CustID, HotelID, RoomID, ChkInDate, ChkO
  VALUES 
   (1, 1, 4, 1, '2022-12-12', '2022-12-13', 1, NULL, NULL, NULL, 4, NULL, NULL, NULL, 2, 150, 140.00),
   (2, 2, 3, 2, '2022-12-12', '2022-12-14', 2, NULL, NULL, NULL, 2, NULL, NULL, NULL, 1, 300, 305.00),
-  (3, 3, 6, 3, '2022-12-12', '2022-12-15', 3, NULL, NULL, NULL, 3, NULL, NULL, NULL, , 450, 465.00);
+  (3, 3, 6, 3, '2022-12-12', '2022-12-15', 3, NULL, NULL, NULL, 3, NULL, NULL, NULL, 3, 450, 465.00);
 
 
