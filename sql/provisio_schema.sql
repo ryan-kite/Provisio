@@ -4,49 +4,45 @@ CREATE DATABASE provisio;
 USE provisio;
 
 CREATE TABLE Customer (
-  CustID int NOT NULL,
+  CustID int NOT NULL AUTO_INCREMENT,
   UserName varchar(255),
   CustPass varchar(255),
   EmailAddress varchar(255),
   FirstName varchar(255),
   LastName varchar(255),
-  LoyaltyPoints int NOT NULL,
+  LoyaltyPoints int DEFAULT 0,
   PRIMARY KEY (CustID)
 );
 
 CREATE TABLE Attractions (
-  AttractionID int NOT NULL,
+  AttractionID int NOT NULL AUTO_INCREMENT,
   Location varchar(255),
   AttractionDesc varchar(255),
   PRIMARY KEY (AttractionID)
 );
 
 CREATE TABLE Amenities(
-  AmenityID int Not NULL,
+  AmenityID int NOT NULL AUTO_INCREMENT,
   AmenityPrice decimal(5,2),
   AmenityDesc varchar(255),
   PRIMARY KEY (AmenityID)
 ); 
 
 CREATE TABLE Hotel (
-  HotelID int NOT NULL,
+  HotelID int NOT NULL AUTO_INCREMENT,
   Location VARCHAR (255),
-  AttractionID INT NOT NULL,
-  PRIMARY KEY (HotelID),
-  FOREIGN KEY (AttractionID) REFERENCES Attractions(AttractionID)
+  PRIMARY KEY (HotelID)
 );
 
 CREATE TABLE Rooms (
-  RoomID int NOT NULL,
+  RoomID int NOT NULL AUTO_INCREMENT,
   RoomType varchar(255),
   RoomPrice decimal(5,2),
-  AmenityID int NOT NULL,
-  PRIMARY KEY (RoomID),
-  FOREIGN KEY (AmenityID) REFERENCES Amenities(AmenityID)
+  PRIMARY KEY (RoomID)
 );
 
 CREATE TABLE Reservation (
-  ReservationID int NOT NULL,
+  ReservationID int NOT NULL AUTO_INCREMENT,
   CustID int NOT NULL,
   HotelID int NOT NULL,
   RoomID int NOT NULL,
@@ -55,13 +51,11 @@ CREATE TABLE Reservation (
   Amenity_1 Char(255),
   Amenity_2 Char(255),
   Amenity_3 Char(255),
-  Amenity_4 Char(255),
   Attraction_1 Char(255),
   Attraction_2 Char(255),
   Attraction_3 Char(255),
-  Attraction_4 Char(255),
-  TotalGuests int NOT NULL,
-  PointsEarned int NOT NULL,
+  TotalGuests int,
+  PointsEarned int,
   TotalPrice decimal(5,2),
   PRIMARY KEY (ReservationID)
 );
