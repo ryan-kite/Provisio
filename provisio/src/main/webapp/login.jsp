@@ -81,7 +81,7 @@
 			<table style="with: 100%">
 				<tr>
 					<td>UserName</td>
-					<td><input type="text" name="username" /></td>
+					<td><input type="email" name="username" /></td>
 				</tr>
 				<tr>
 					<td>Password</td>
