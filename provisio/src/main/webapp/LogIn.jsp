@@ -76,15 +76,15 @@
 <link href="login.css" rel="stylesheet">
 
 	<div align="center">
-		<h1>Login Form</h1>
+		<h1>Provision Login Page</h1>
 		<form action="<%=request.getContextPath()%>/login" method="post">
 			<table style="with: 100%">
 				<tr>
-					<td>UserName</td>
+					<td>User email</td>
 					<td><input type="email" name="username" /></td>
 				</tr>
 				<tr>
-					<td>Password</td>
+					<td>User Password</td>
 					<td><input type="password" name="password" /></td>
 				</tr>
 				<td>
