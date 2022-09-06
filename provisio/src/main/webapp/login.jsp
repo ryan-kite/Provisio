@@ -76,7 +76,7 @@
 <link href="login.css" rel="stylesheet">
 
 	<div align="center">
-		<h1>Provision Login Page</h1>
+		<h1>Provisio Login Page</h1>
 		<form action="<%=request.getContextPath()%>/login" method="post">
 			<table style="with: 100%">
 				<tr>
