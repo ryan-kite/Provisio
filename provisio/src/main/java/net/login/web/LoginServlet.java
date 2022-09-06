@@ -39,13 +39,16 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			if (loginDao.validate(loginBean)) {
-				//HttpSession session = request.getSession();
-				// session.setAttribute("username",username);
-				response.sendRedirect("reservation.jsp");
+				String userId = loginDao.getUserID(loginBean);
+				System.out.println("LoginDao: (userId): " + userId);
+				request.setAttribute("userId", userId);
+				request.setAttribute("username", username);
+				request.setAttribute("authenticated", "true");
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			} else {
-				HttpSession session = request.getSession();
-				//session.setAttribute("user", username);
-				response.sendRedirect("login.jsp");
+				request.setAttribute("username", username);
+				request.setAttribute("authenticated", "false");
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

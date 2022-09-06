@@ -26,13 +26,44 @@ public class LoginDao {
 
 			System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
+			
 			status = rs.next();
+			
+			String custId = rs.getString("CustID");
+			System.out.println("CUSTOMERID: " + custId);
 
 		} catch (SQLException e) {
 			// process sql exception
 			printSQLException(e);
 		}
 		return status;
+	}
+	
+	public String getUserID(LoginBean loginBean) throws ClassNotFoundException {
+		String userId = "";
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		try (Connection connection = DriverManager
+				.getConnection("jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio", "Provisio");
+
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection
+						.prepareStatement("select * from customer where UserName = ? and CustPass = ? ")) {
+			preparedStatement.setString(1, loginBean.getUsername());
+			preparedStatement.setString(2, loginBean.getPassword());
+
+			System.out.println(preparedStatement);
+			ResultSet rs = preparedStatement.executeQuery();
+			rs.next();
+			userId = rs.getString("CustID");
+			System.out.println("LoginDao: (userId): " + userId);
+
+		} catch (SQLException e) {
+			// process sql exception
+			printSQLException(e);
+		}
+		return userId;
 	}
 
 	private void printSQLException(SQLException ex) {

@@ -151,6 +151,11 @@ function DoubleCheckPassword() {
 
 </script>
 
+<script>
+// Application User Session Management
+<%@ include file = "/js/user-session-management.js" %>
+</script>
+
 <!-- FOOTER -->
 <%@ include file = "/shared/footer.jsp" %>
 

@@ -24,5 +24,10 @@
 
 <%@ include file = "/shared/footer.jsp" %>
 
+<script>
+// Application User Session Management
+<%@ include file = "/js/user-session-management.js" %>
+</script>
+
 </body>
 </html>
