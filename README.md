@@ -41,7 +41,7 @@ from a command line run:
   Context docBase="provisio" path="/" reloadable="true ...
 - Re-launch project: provisio > Run as > Run on Server
 
-#### Making code changes:
+### Making code changes:
 create feature branch off of 'main'
 #### ensure you are on main: 
 - git status 
@@ -56,7 +56,7 @@ create feature branch off of 'main'
 - git push    (you push your changes to the repo)
 - notifty Ryan your branch is ready to be merged
 
-#### Run MySQL database setup scripts
+### Run MySQL database setup scripts
 - in the sql folder you will find files to build and populate your DB
 - open your mysql terminal or GUI if using Workbench
 - ensure you have already created user provisio user and password (see cheatsheet if needed.)
