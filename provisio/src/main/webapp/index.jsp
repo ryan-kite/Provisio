@@ -18,11 +18,17 @@
 </head>
 
 <body>
+<div id="logged-out" class="alert alert-success" style="display: none">Your are now logged out. Come see us again soon.</div>
 <%@ include file = "/shared/navigation.jsp" %>
 
 <jsp:include page="home.jsp"/>
 
 <%@ include file = "/shared/footer.jsp" %>
+
+<script>
+// Application User Session Management
+<%@ include file = "/js/user-session-management.js" %>
+</script>
 
 </body>
 </html>

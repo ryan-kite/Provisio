@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
-<title>Provisio - Rewards</title>
+<title>Provisio - Success</title>
 
 <!--  TODO: ADD ICON -->
 <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
@@ -20,7 +20,16 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
-<h1> Rewards </h1>
+<div class="container">
+  <div class="row jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Success</h1>
+      <p class="lead">Welcome aboard to the Provisio network.</p>
+      <p>Get Booking!</p>
+      <a href="/" class="btn btn-primary">Let's get started</a>
+    </div>
+  </div>
+</div>
 
 <%@ include file = "/shared/footer.jsp" %>
 

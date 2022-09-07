@@ -48,7 +48,7 @@ public class Testing extends HttpServlet {
 				
 		
 		// Then forward the request to a page that includes the parameter data if you want 
-		// or just send to a thankyou page.
+		// or just send to a thank you page.
 		request.getRequestDispatcher("/register.jsp").forward(request, response); 
 		return;
 		
