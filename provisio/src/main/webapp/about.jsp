@@ -20,7 +20,7 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
-<h1> About </h1>
+<h1> About Us </h1>
 
 <%@ include file = "/shared/footer.jsp" %>
 
