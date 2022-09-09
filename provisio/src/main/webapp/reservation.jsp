@@ -34,88 +34,117 @@
      <div class="row mt-2" id="reservation-form">
         <div class="col-12">
             <form id="reservation-form" action="#" method="post">
-            
-            <!-- SELECT LOCATION -->
-            <!-- HOTELID -->
-            <label>Select Location</label>
-            <select id="location" name="location" onchange="handleAtrractions(this.value)">
-                <option value="none" selected disabled hidden>Select a city</option>
-                <option value="1">TEXAS</option>
-                <option value="2">ARKANSAS</option>
-                <option value="3">SEATTLE</option>
-            </select>
+                
+                <!-- SELECT LOCATION / HOTELID-->
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="location">Select Location</label>
+                        <select id="location" class="form-control" name="location" onchange="handleAtrractions(this.value)">
+                            <option value="none" selected disabled hidden>Select a city</option>
+                            <option value="1">TEXAS</option>
+                            <option value="2">ARKANSAS</option>
+                            <option value="3">SEATTLE</option>
+                        </select>
+                    </div>
+                
+                    <!-- SELECT DATES / CHECK-IN -->
+                    <div class="col-md-4 mb-3">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin" class="form-control" name="checkin">
+                    </div>
 
-            <!-- SELECT DATES -->
-            <!-- CHECK-IN -->
-            <label>Check-in</label>
-            <input type="date" id="checkin" name="checkin">
-            <!-- CHECK-OUT -->
-            <label>Check-out</label>
-            <input type="date" id="checkout" name="checkout">
+                    <!-- CHECK-OUT -->
+                    <div class="col-md-4 mb-3">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout" class="form-control" name="checkout">
+                    </div>
+                </div>    
+           
+                <div class="form-row">
+                    <!-- ENTER GUEST COUNT -->
+                    <div class="col-md-4 mb-3">
+                        <label for="guests">Number of guests</label>
+                        <input type="number" id="guests" class="form-control" name="guests" value="0"> 
+                    </div>    
+
+                    <!-- SELECT ROOM -->
+                    <div class="col-md-4 mb-3">
+                        <label for="room">Select room type</label>
+                        <select id="room" class="form-control" name="room" onchange="handleRooms(this.value)">
+                            <option value="none" selected disabled hidden>pick a room</option>
+                            <option value="1">DOUBLE 110.00</option>
+                            <option value="2">QUEEN 125.00</option>
+                            <option value="3">DOUBLE QUEEN 150.00</option>
+                            <option value="4">KING 165.00</option>
+                        </select>
+                    </div>
+                </div>    
+
+                <div class="form-row">
+                    <!-- SELECT AMENTITES -->
+                    <div class="col-md-4 mb-3">
+                        <label for="amenities">Choose your amenities</label>
+                        <select id="amenities" class="form-control" name="amenities" multiple onchange="handleAmenities(this.value)">
+                            <option value="none" selected disabled hidden>pick some options</option>
+                            <option value="1">WIFI 30.00</option>
+                            <option value="2">POOL 45.00</option>
+                            <option value="3">BREAKFAST 15.00</option>
+                            <option value="4">PARKING 50.00</option>
+                        </select>
+                    </div>    
 
 
-            <!-- ENTER GUEST COUNT -->
-            <label>Number of guests</label>
-            <input type="number" value="0"> 
+                    <!-- SELECT ATTRACTIONS -->
+                    <div class="col-md-4 mb-3">
+                        <label for="attrations">Choose your attractions</label>
+                        <select id="for-texas" class="form-control" name="attractions" multiple onchange="handleAttractions(this.value)">
+                            <option value="none" selected disabled hidden>have some fun</option>
+                            <option value="1">FISHING</option>
+                            <option value="2">SCUBA</option>
+                            <option value="3">ATV</option>
+                        </select>
+                        <select id="for-arkansas" class="form-control" name="attractions" multiple onchange="handleAttractions(this.value)">
+                            <option value="none" selected disabled hidden>have some fun</option>
+                            <option value="1">HORSEBACK RIDING</option>
+                            <option value="2">DIRT BIKING</option>
+                            <option value="3">SKY DIVING</option>
+                        </select>
+                        <select id="for-seattle" class="form-control" name="attractions" multiple onchange="handleAttractions(this.value)">
+                            <option value="none" selected disabled hidden>have some fun</option>
+                            <option value="1">HIKING</option>
+                            <option value="2">WHALE WATCHING</option>
+                            <option value="3">MOUNT RAINEER</option>
+                        </select>
+                    </div>
+                </div>
 
-            <!-- SELECT ROOM -->
-            <label>Select room type</label>
-            <select id="room" name="room" onchange="handleRooms(this.value)">
-                <option value="none" selected disabled hidden>pick a room</option>
-                <option value="1">DOUBLE 110.00</option>
-                <option value="2">QUEEN 125.00</option>
-                <option value="3">DOUBLE QUEEN 150.00</option>
-                <option value="4">KING 165.00</option>
-            </select>
+                <div class="form-row">
+                    <!-- TOTAL POINT -->
+                    <div class="col-md-4 mb-3">
+                        <label for="points">Total points earned</label>
+                        <input type="text" id="points" class="form-control" name="points">
+                    </div>
 
-            <!-- SELECT AMENTITES -->
-            <label>Choose your amenities</label>
-            <select id="amenities" name="amenities" multiple onchange="handleAmenities(this.value)">
-                <option value="none" selected disabled hidden>pick some options</option>
-                <option value="1">WIFI 30.00</option>
-                <option value="2">POOL 45.00</option>
-                <option value="3">BREAKFAST 15.00</option>
-                <option value="4">PARKING 50.00</option>
-            </select>
+                    <!-- TOTAL COSTS -->
+                    <div class="col-md-4 mb-3">
+                        <label for="total">Total costs</label>
+                        <input type="text" id="total" class="form-control" name="total">
+                    </div>
+                </div>
 
-            <!-- SELECT ATTRACTIONS -->
-            <label>Choose your attractions</label>
-            <select id="for-texas" name="attractions" multiple onchange="handleAttractions(this.value)">
-                <option value="none" selected disabled hidden>have some fun</option>
-                <option value="1">FISHING</option>
-                <option value="2">SCUBA</option>
-                <option value="3">ATV</option>
-            </select>
-            <select id="for-arkansas" name="attractions" multiple onchange="handleAttractions(this.value)">
-                <option value="none" selected disabled hidden>have some fun</option>
-                <option value="1">HORSEBACK RIDING</option>
-                <option value="2">DIRT BIKING</option>
-                <option value="3">SKY DIVING</option>
-            </select>
-            <select id="for-seattle" name="attractions" multiple onchange="handleAttractions(this.value)">
-                <option value="none" selected disabled hidden>have some fun</option>
-                <option value="1">HIKING</option>
-                <option value="2">WHALE WATCHING</option>
-                <option value="3">MOUNT RAINEER</option>
-            </select>
-
-            <!-- HIDDEN FIELDS -->
-            <input type="text" id="cust-id" name="cust-id">
-            <!-- USER ID/CUSTID -->
-
-            <!-- TOTAL COSTS -->
-            <label>Total costs</label>
-            <input type="text" id="total" name="total">
-
-            <!-- TOTAL POINT -->
-            <label>Total points earned</label>
-            <input type="text" id="points" name="points">
-            
-
-            <button type="submit">MAKE RESERVATION</button>
-
+                <div class="form-row">
+                    <!-- HIDDEN FIELDS -->
+                    <!-- USER_ID/CUSTID -->
+                    <div class="col-md-4 mb-3">
+                        <input type="text" id="cust-id" class="form-control" name="cust-id">
+                    </div>
+                    
+                    <!-- SUBMIT -->
+                    <div class="col-md-4 mb-3">
+                        <button type="submit" class="btn btn-primary">MAKE RESERVATION</button>
+                    </div>
+                </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -163,6 +192,22 @@ function handleAtrractions(hotelId=null) {
         document.getElementById("for-seattle").setAttribute('style', 'display: none');
     }
 }
+
+function handleTotal() {
+    // ROOM
+
+    // * NIGHTS
+
+    // AMENITIES
+    // WI-FI (12.99 flat fee)
+    // breakfast (8.99 per night)
+    // parking (19.99 per night)
+};
+
+function handlePoints() {};
+
+function handleDates() {};
+
 </script>
 </body>
 </html>

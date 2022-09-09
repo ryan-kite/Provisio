@@ -1,4 +1,3 @@
-
 DROP DATABASE provisio;
 CREATE DATABASE provisio;
 USE provisio;
