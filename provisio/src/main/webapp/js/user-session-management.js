@@ -28,9 +28,9 @@ console.log("isAuthed: ", isAuthed)
 // if authed set username and authenticated status
 if (isAuthed) {
 	userId = sessionStorage.getItem("userId");
-  username = sessionStorage.getItem("username");
-  isAuthenticated = sessionStorage.getItem("isAuthenticated")
-  handleNavigationDisplay(isAuthed)
+  	username = sessionStorage.getItem("username");
+  	isAuthenticated = sessionStorage.getItem("isAuthenticated")
+  	handleNavigationDisplay(isAuthed)
 } else {
 	handleNavigationDisplay(isAuthed)
 }
