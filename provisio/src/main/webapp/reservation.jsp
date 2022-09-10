@@ -33,8 +33,8 @@
     </div>
     <!-- ELSE: SHOW FORM -->
     <div class="row mt-2" id="reservation-form">
-        <div class="col-12">
-            <form id="reservation-form" action="#" method="post">
+        <div class="col-12">                    
+            <form id="reservation-form" action="/reservation" method="post">
                 
                 <!-- SELECT LOCATION / HOTELID-->
                 <div class="form-row">
@@ -140,7 +140,7 @@
                     </div>
                     
                     <!-- GENERATE SUMMARY -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-4 mb-3 text-right">
                         <button type="button" class="btn btn-secondary" onclick="handleTotal()">PREVIEW</button>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                 <!-- SUBMIT -->
                 <div class="row" id="summary" style="display: none">
                     <div class="col-md-2">
-                        
+                        <!-- HOLDER -->
                     </div>
                     <div class="col-md-6 offset-md-2">
                         <div class="card">
@@ -166,7 +166,7 @@
                             </ul>
                         </div>
                          <div class="col-md-12 mb-3 text-right mt-3">
-                            <button type="submit" class="btn btn-primary">BOOK RESERVATION</button>
+                            <button type="submit" class="btn btn-primary">CONFIRM RESERVATION</button>
                         </div>
                     </div>
                 </div>
@@ -286,9 +286,10 @@ function handleTotal() {
     amenities = Array.from(options).map(el => el.value);
     console.log(amenities) // ['none', '1', '2', '3']
     for (let a in amenities) {
-        if (a == "1") { total += 13.99 };
-        if (a == "2") { total += (9.99 * parseFloat(nights)) };
-        if (a == "3") { total += (19.99 * parseFloat(nights)) };
+        console.log("a: ", a)
+        if (amenities[a] == "WIFI") { total += 13.99 };
+        if (amenities[a] == "BREAKFAST") { total += (8.99 * nights) };
+        if (amenities[a] == "PARKING") { total += (19.99 * nights) };
     }
     console.log("total: ", total.toFixed(2))
 
@@ -331,7 +332,7 @@ function showSummary() {
     document.getElementById("sPoints").innerHTML = points;
     
     // total cost:
-    document.getElementById("sCost").innerHTML = total;
+    document.getElementById("sCost").innerHTML = total.toFixed(2);
 
 };
 
