@@ -59,22 +59,29 @@ ResultSet resultSet = null;
 </tr>
 <tr bgcolor="lightgrey">
 <td><b>Reservation ID</b></td>
-<td><b>Customer ID</b></td>
-<td><b>Hotel ID</b></td>
-<td><b>Room ID</b></td>
+<td><b>Customer</b></td>
+<td><b>Room</b></td>
 <td><b>Check In Date</b></td>
 <td><b>Check Out Date</b></td>
 <td><b>Total Guests</b></td>
+<td><b>Loyalty Points Earned</b></td>
 <td><b>Total Price</b></td>
 <td><b>Amenity</b></td>
 <td><b>Attraction</b></td>
-<td><b>Loyalty Points Earned</b></td>
 </tr>
 <%
 try{ 
 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio", "Provisio");
 statement=connection.createStatement();
-String sql ="SELECT * FROM reservation where CustID = '1' ";
+
+String sql ="SELECT ReservationID,UserName,RoomType,ChkInDate,ChkOutDate,TotalGuests,PointsEarned, TotalPrice, AmenityDesc, AttractionDesc "
++ "FROM customer c, amenities am, attractions a, hotel h, reservations re, rooms r" 
++" Where c.CustID = re.CustID" + 
+"AND am.AmenityID = re.Amenity_1" +
+"AND a.AttractionID = re.Attraction_1 " +
+"AND h.HotelID = re.HotelID " +
+"AND r.RoomID = re.RoomID" +
+"AND c.UserName = 'jporter@gmail.com'";
 
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
@@ -82,16 +89,16 @@ while(resultSet.next()){
 <tr bgcolor="#DEB887">
 
 <td><%=resultSet.getString("ReservationID") %></td>
-<td><%=resultSet.getString("CustID") %></td>
-<td><%=resultSet.getString("HotelID") %></td>
-<td><%=resultSet.getString("RoomID") %></td>
+<td><%=resultSet.getString("UserName") %></td>
+<td><%=resultSet.getString("RoomType") %></td>
 <td><%=resultSet.getString("ChkInDate") %></td>
 <td><%=resultSet.getString("ChkOutDate") %></td>
 <td><%=resultSet.getString("TotalGuests") %></td>
-<td><%=resultSet.getString("TotalPrice") %></td>
-<td><%=resultSet.getString("Amenity_1") %></td>
-<td><%=resultSet.getString("Attraction_1") %></td>
 <td><%=resultSet.getString("PointsEarned") %></td>
+<td><%=resultSet.getString("TotalPrice") %></td>
+<td><%=resultSet.getString("AmenityDesc") %></td>
+<td><%=resultSet.getString("AttractionDesc") %></td>
+
 
 </tr>
 
