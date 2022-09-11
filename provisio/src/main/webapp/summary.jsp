@@ -59,15 +59,18 @@ ResultSet resultSet = null;
 </tr>
 <tr bgcolor="lightgrey">
 <td><b>Reservation ID</b></td>
-<td><b>Customer ID</b></td>
 <td><b>Hotel ID</b></td>
 <td><b>Room ID</b></td>
 <td><b>Check In Date</b></td>
 <td><b>Check Out Date</b></td>
 <td><b>Total Guests</b></td>
 <td><b>Total Price</b></td>
-<td><b>Amenity</b></td>
-<td><b>Attraction</b></td>
+<td><b>Amenity 1</b></td>
+<td><b>Amenity 2</b></td>
+<td><b>Amenity 3</b></td>
+<td><b>Attraction 1</b></td>
+<td><b>Attraction 2</b></td>
+<td><b>Attraction 3</b></td>
 <td><b>Loyalty Points Earned</b></td>
 </tr>
 <%
@@ -82,7 +85,6 @@ while(resultSet.next()){
 <tr bgcolor="#DEB887">
 
 <td><%=resultSet.getString("ReservationID") %></td>
-<td><%=resultSet.getString("CustID") %></td>
 <td><%=resultSet.getString("HotelID") %></td>
 <td><%=resultSet.getString("RoomID") %></td>
 <td><%=resultSet.getString("ChkInDate") %></td>
@@ -90,7 +92,11 @@ while(resultSet.next()){
 <td><%=resultSet.getString("TotalGuests") %></td>
 <td><%=resultSet.getString("TotalPrice") %></td>
 <td><%=resultSet.getString("Amenity_1") %></td>
+<td><%=resultSet.getString("Amenity_2") %></td>
+<td><%=resultSet.getString("Amenity_3") %></td>
 <td><%=resultSet.getString("Attraction_1") %></td>
+<td><%=resultSet.getString("Attraction_2") %></td>
+<td><%=resultSet.getString("Attraction_3") %></td>
 <td><%=resultSet.getString("PointsEarned") %></td>
 
 </tr>
