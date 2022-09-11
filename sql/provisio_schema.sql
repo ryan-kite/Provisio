@@ -43,8 +43,8 @@ CREATE TABLE Rooms (
 CREATE TABLE Reservation (
   ReservationID int NOT NULL AUTO_INCREMENT,
   CustID int NOT NULL,
-  HotelID int NOT NULL,
-  RoomID int NOT NULL,
+  HotelID Char Char(255),
+  RoomID Char Char(255),
   ChkInDate DATE NOT NULL,
   ChkOutDate DATE NOT NULL,
   Amenity_1 Char(255),

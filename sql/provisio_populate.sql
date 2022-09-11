@@ -50,6 +50,6 @@ VALUES
 /* RESERVATION */
 INSERT INTO reservation (CustID, HotelID, RoomID, ChkInDate, ChkOutDate, Amenity_1, Amenity_2, Amenity_3, Attraction_1, Attraction_2, Attraction_3, TotalGuests, PointsEarned, TotalPrice)
  VALUES 
-  (1, 1, 1, '2022-12-12', '2022-12-13', 1, NULL, NULL, 2, NULL, NULL, 2, 150, 140.00),
-  (2, 2, 2, '2022-12-12', '2022-12-14', 2, NULL, NULL, 6, NULL, NULL, 1, 300, 305.00),
-  (3, 3, 3, '2022-12-12', '2022-12-15', 3, NULL, NULL, 8, NULL, NULL, 3, 450, 465.00);
+  (1, 'TEXAS', 'SINGLE', '2022-12-12', '2022-12-13', 'WIFI', 'BREAKFAST', 'PARKING', 'FISHING', 'SCUBA', 'ATV', 2, 150, 140.00),
+  (2, 'ARKANSAS', 'DOUBLE', '2022-12-12', '2022-12-14', 'WIFI', 'BREAKFAST', 'PARKING', 'HORSE RIDING', 'DIRT BIKING', 'SKY DIVING', 1, 300, 305.00),
+  (3, 'SEATTLE', 'DOUBLE QUEEN', '2022-12-12', '2022-12-15', 'WIFI', 'BREAKFAST', 'PARKING', 'HIKING', 'WHALE WATCHING', 'MOUNT RAINEER', 3, 450, 465.00);
