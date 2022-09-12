@@ -34,12 +34,13 @@ let isAuthenticated = null;
 let isAuthed = null;
 let userId = null;
 
-hasAuth = document.getElementById("lookup-tab").value;
+hasAuth = document.getElementById("has-auth").value;
+console.log("has-auth: ", hasAuth)
 if (hasAuth === 'true') {
 	console.log("user is authenticated from JSP Session")
-	username = <%= username %>
-	userId = <%= userId %>
-	isAuthenticated =  <%= authenticated %>
+	username = "<%= username %>";
+	userId = "<%= userId %>";
+	isAuthenticated =  "<%= authenticated %>"
 	
 } else {
 	console.log("user is NOT authenticated from JSP Session")
