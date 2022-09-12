@@ -20,13 +20,14 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
 <div class="container">
   <div class="row jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Success</h1>
-      <p class="lead">Welcome aboard to the Provisio network.</p>
-      <p>Get Booking!</p>
-      <a href="/" class="btn btn-primary">Let's get started</a>
+      <p class="lead">You're on your way!</p>
+      <p>Earn reward points with every booking that you can use for enhanced fun times.</p>
     </div>
   </div>
 </div>

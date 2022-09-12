@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import net.login.bean.LoginBean;
 import net.login.database.LoginDao;
 
@@ -41,6 +42,12 @@ public class LoginServlet extends HttpServlet {
 			if (loginDao.validate(loginBean)) {
 				String userId = loginDao.getUserID(loginBean);
 				System.out.println("LoginDao: (userId): " + userId);
+				// SET IN SESSION
+				HttpSession session = request.getSession();
+				session.setAttribute("username", username);
+				session.setAttribute("userId", userId);
+				session.setAttribute("authenticated", "true");
+				// SET IN REQUEST (phase out later)
 				request.setAttribute("userId", userId);
 				request.setAttribute("username", username);
 				request.setAttribute("authenticated", "true");

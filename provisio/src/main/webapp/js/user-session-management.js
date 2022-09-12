@@ -1,7 +1,4 @@
-let username = null;
-let isAuthenticated = null;
-let isAuthed = null;
-let userId = null;
+
 
 function isValidUser() {
     // 1st Check if we have an authenticated user in sessionStorage
@@ -59,9 +56,3 @@ function handleNavigationDisplay(isAuthed) {
 	}
 }
 
-function signout() {
-	// clear the user session
-	sessionStorage.clear();
-	document.getElementById("logged-out").setAttribute('style', 'display:block');
-	
-}

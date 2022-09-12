@@ -20,6 +20,8 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
 <div class="container">
     <h2>Reservation</h2>
     <!-- IF: NO USER_ID ASK THEM TO SIGN-IN OR REGISTER -->

@@ -20,6 +20,8 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
 <div class="container">
   <div class="row mt-2">  
     <div class="col-12">

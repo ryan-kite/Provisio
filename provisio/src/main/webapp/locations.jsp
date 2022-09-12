@@ -20,6 +20,8 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
 <h1> Locations </h1>
 
 <%@ include file = "/shared/footer.jsp" %>

@@ -18,6 +18,6 @@
      <a class="py-2 d-none d-md-inline-block" id="lookup-tab" href="/lookup.jsp">Lookup</a>
      <a class="py-2 d-none d-md-inline-block" id="rewards-tab" href="/rewards.jsp">Rewards</a>
      <a class="py-2 d-none d-md-inline-block" id="summary-tab" href="/summary.jsp">Summary</a>
-     <a class="py-2 d-none d-md-inline-block" onclick="signout()" id="logout-tab" href="/index.jsp">Logout</a>
+     <a class="py-2 d-none d-md-inline-block" id="logout-tab" href="/logout.jsp">Logout</a>
    </div>
  </nav>

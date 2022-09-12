@@ -5,6 +5,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
     
 <!doctype html>
 <html lang="en">
@@ -26,30 +27,26 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
-<h1> Summary </h1>
+<%@ include file ="/shared/user-session.jsp" %>
 
+<h1> Summary </h1>
 
 <script>
 // Application User Session Management
 <%@ include file = "/js/user-session-management.js" %>
 </script>
 
-<script type="text/javascript">
-if (sessionStorage.getItem("username") !== null && sessionStorage.getItem("isAuthenticated") === "true") {
-	 console.log("if: ${username}", "${authenticated}")
-       console.log("username: " + sessionStorage.getItem("username") + " authenticated: " + sessionStorage.getItem("isAuthenticated"));
-       return true;
-   } 
 
-</script>
 
 <%
-
-
 
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
+
+String uid = (String)session.getAttribute("userId");
+// casting to int
+int uid_int = Integer.parseInt(uid);
 %>
 
 <h2 align="center"><font><strong>Your Current Reservations</strong></font></h2>
@@ -76,10 +73,11 @@ ResultSet resultSet = null;
 <%
 try{ 
 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio", "Provisio");
-statement=connection.createStatement();
-String sql ="SELECT * FROM reservation where CustID = '1' ";
 
-resultSet = statement.executeQuery(sql);
+String query = "SELECT * FROM reservation where CustID = ? ";
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setInt(1, uid_int);
+resultSet = pstmt.executeQuery();
 while(resultSet.next()){
 %>
 <tr bgcolor="#DEB887">

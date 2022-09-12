@@ -20,6 +20,8 @@
 <body >
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
 	<div align="center">
 		<h1>Provisio Login Page</h1>
 		<form action="<%=request.getContextPath()%>/login" method="post">

@@ -20,7 +20,29 @@
 <body>
 <%@ include file = "/shared/navigation.jsp" %>
 
+<%@ include file ="/shared/user-session.jsp" %>
+
+
 <h1> Logout </h1>
+
+<%session.invalidate();%>
+<% HttpSession nsession = request.getSession(false);
+if(nsession!=null) {
+   String data=(String)session.getAttribute( "fname" );
+   out.println(data);
+}
+else
+  out.println("Session is not active");
+%>
+<script>
+function signout() {
+	// clear the user session
+	sessionStorage.clear();
+	document.getElementById("logged-out").setAttribute('style', 'display:block');
+	
+}
+signout();
+</script>
 
 <%@ include file = "/shared/footer.jsp" %>
 
