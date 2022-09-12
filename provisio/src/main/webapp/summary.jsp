@@ -56,8 +56,8 @@ int uid_int = Integer.parseInt(uid);
 </tr>
 <tr bgcolor="lightgrey">
 <td><b>Reservation ID</b></td>
-<td><b>Hotel ID</b></td>
-<td><b>Room ID</b></td>
+<td><b>Hotel</b></td>
+<td><b>Room Type</b></td>
 <td><b>Check In Date</b></td>
 <td><b>Check Out Date</b></td>
 <td><b>Total Guests</b></td>
@@ -68,7 +68,7 @@ int uid_int = Integer.parseInt(uid);
 <td><b>Attraction 1</b></td>
 <td><b>Attraction 2</b></td>
 <td><b>Attraction 3</b></td>
-<td><b>Loyalty Points Earned</b></td>
+<td><b>Loyalty Points</b></td>
 </tr>
 <%
 try{ 
