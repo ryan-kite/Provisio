@@ -23,9 +23,9 @@ try {
 }
 
 %>
-<input type="text" id="has-username" value="<%= username %> hidden">
-<input type="text" id="has-userid" value="<%= userId %> hidden">
-<input type="text" id="has-auth" value="<%= authenticated %> hidden">
+<input type="text" id="has-username" value="<%= username %>" hidden="true">
+<input type="text" id="has-userid" value="<%= userId %> " hidden="true">
+<input type="text" id="has-auth" value="<%= authenticated %>" hidden="true">
 
 
 <script type="text/javascript">
