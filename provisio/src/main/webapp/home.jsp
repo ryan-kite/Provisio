@@ -15,12 +15,12 @@
   <div class="row mt-2">
     <div class="col-sm"><br>
     <img src="/imgs/Hotel_LandingMain.jpg" alt="Trulli" width="500" height="333">
-      <h3>Great Locations - Las Vegas Nevada</h3>
+      <h3>Great Locations - Seattle Washington</h3>
       <p>Our Las Vegas Nevada location is nestled in the foothills and
       offers trails, biking, fishing and many nearby tourist attractions.</p>
     </div>
     <div class="col-sm bg-light">
-      <h4>Getaway Experience - Phoenix Arizona</h4>
+      <h4>Getaway Experience - Dallas Texas</h4>
        <p>With fine dining and relaxation, you are home at Hotel Provisio. </p>
        <img src="/imgs/Hotel_LandingMain1.jpg" alt="Trulli" width="400" height="333">
     </div>
@@ -36,3 +36,4 @@
     </div>
   </div>  
 </div>
+

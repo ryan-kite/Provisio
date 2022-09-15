@@ -26,7 +26,7 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-1">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">About Hotel Provisio</h1>
+        <h1 class="fw-light">The Hotel Provisio</h1>
         <p class="lead text-muted">Hotel Provisio was founded in 1978 by Carol and Tom Whendall.  As avid travelers early in life, Carol and Tom believed that 
         a good hotel should offer an "experience" in itself. Since that first location in outskirts of Fayettville Arkansas, the Whendalls have opened 2 other
         locations with a passion of giving families longlasting memories.</p>
@@ -73,7 +73,49 @@
       </div>
     </div>
   </div>
-</main>
+  <hr><hr>
+  <div class="col-md-7 col-lg-8">
+     <h4 class="mb-3">Contact Us</h4>
+     <form class="needs-validation" novalidate>
+        <div class="row g-2">
+          <div class="col-sm-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label for="email" class="form-label">Email </label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+          
+          <div class="col-6">
+            <label for="message" class="form-label">Message</label>
+            <textarea type="text" class="form-control" id="message" placeholder="Type message here" required> </textarea>
+            <div class="invalid-feedback">
+                Please enter a message.
+              </div>
+            </div>
+          <br><br><br><br><br>
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Send Message</button>
+      </form>
+     </div>
+  </main>
 
 <%@ include file = "/shared/footer.jsp" %>
 
