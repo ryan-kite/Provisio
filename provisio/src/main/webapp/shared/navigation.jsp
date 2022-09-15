@@ -14,8 +14,6 @@
      <a class="py-2 d-none d-md-inline-block" id="login-tab" href="/login.jsp">Login</a>
    
      <!--  If user is authenticated  -->
-     
-     <a class="py-2 d-none d-md-inline-block" id="lookup-tab" href="/lookup.jsp">Lookup</a>
      <a class="py-2 d-none d-md-inline-block" id="rewards-tab" href="/rewards.jsp">Rewards</a>
      <a class="py-2 d-none d-md-inline-block" id="summary-tab" href="/summary.jsp">Summary</a>
      <a class="py-2 d-none d-md-inline-block" id="logout-tab" href="/logout.jsp">Logout</a>
