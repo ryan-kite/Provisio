@@ -34,12 +34,12 @@
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h5>About</h5>
+      <h5>Authors</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Team</a></li>
-        <li><a class="text-muted" href="#">Locations</a></li>
-        <li><a class="text-muted" href="#">Privacy</a></li>
-        <li><a class="text-muted" href="#">Terms</a></li>
+        <li><a class="text-muted" href="#">Kite</a></li>
+        <li><a class="text-muted" href="#">Dhungel</a></li>
+        <li><a class="text-muted" href="#">Easter</a></li>
+        <li><a class="text-muted" href="#">Sewalson</a></li>
       </ul>
     </div>
   </div>
