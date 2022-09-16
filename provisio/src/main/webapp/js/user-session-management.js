@@ -46,7 +46,6 @@ function handleNavigationDisplay(isAuthed) {
 		document.getElementById("login-tab").setAttribute('style', 'display:none !important');
 	} else {
 		// hide
-		document.getElementById("lookup-tab").setAttribute('style', 'display:none !important');
 		document.getElementById("rewards-tab").setAttribute('style', 'display:none !important');
 		document.getElementById("summary-tab").setAttribute('style', 'display:none !important');
 		document.getElementById("logout-tab").setAttribute('style', 'display:none !important');
