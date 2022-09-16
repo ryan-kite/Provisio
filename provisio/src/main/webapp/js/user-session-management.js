@@ -37,7 +37,6 @@ function handleNavigationDisplay(isAuthed) {
 	console.log("handleNavigation: isAuthed:", isAuthed)
 	if (isAuthed === true) {
 		// show
-		document.getElementById("lookup-tab").setAttribute('style', 'display:block !important');
 		document.getElementById("rewards-tab").setAttribute('style', 'display:block !important');
 		document.getElementById("summary-tab").setAttribute('style', 'display:block !important');
 		document.getElementById("logout-tab").setAttribute('style', 'display:block !important');

@@ -75,10 +75,7 @@
                         <label for="room">Select room type</label>
                         <select id="room" class="form-control" name="room" onchange="handleRoomPrice(this.value)">
                             <option value="none" selected disabled hidden>pick a room</option>
-                            <option value="1">DOUBLE 110.00</option>
-                            <option value="2">QUEEN 125.00</option>
-                            <option value="3">DOUBLE QUEEN 150.00</option>
-                            <option value="4">KING 165.00</option>
+                            <!-- GENERATED ROOM OPTIONS -->
                         </select>
                     </div>
                 </div>    
@@ -212,6 +209,7 @@ let amenities = [];
 let attractions = []; // dependent on location
 let points = null;
 let total = null;
+let rooms = [];
 
 
 // HANDLE ATTRACTIONS 
@@ -386,23 +384,24 @@ function handleRoomPrice() {
     roomId = document.getElementById("room").value;
     console.log()
     switch(roomId) {
+        case "0":
+            roomPrice = rooms[roomId]['price']
+            break;
         case "1":
-            roomPrice = 110.00
+            roomPrice = rooms[roomId]['price']
             break;
         case "2":
-            roomPrice = 125.00
+            roomPrice = rooms[roomId]['price']
             break;
         case "3":
-            roomPrice = 150.00
-            break;
-        case "4":
-            roomPrice = 165.00
+            roomPrice = rooms[roomId]['price']
             break;    
         default:
             roomPrice = 0.00
             alert("Select a room.")
         }
-    console.log("roomPrice: ", roomPrice);
+
+    console.log("handleRoomPrice: roomPrice: (", roomPrice);
 };
 
 function handleGuests(g=0) {
@@ -410,6 +409,33 @@ function handleGuests(g=0) {
     guests = g;
     return guests;
 }
+
+function generateRooms() {
+    console.log("generating rooms")
+    select = document.getElementById( 'room' );
+
+    var select, i, option;
+        
+    var room0 = {rtype: "DOUBLE", price: 110.00};
+    var room1 = {rtype: "QUEEN", price: 125.00};
+    var room2 = {rtype: "DOUBLE QUEEN", price: 150.00};
+    var room3 = {rtype: "KING", price: 165.00};
+    
+    rooms.push(room0, room1, room2, room3)
+    for (idx in rooms) {
+        rooms[idx].price = (rooms[idx].price * 1.05)
+    }
+    console.log(rooms)
+
+    for (idx in rooms) {
+        option = document.createElement( 'option' );
+        option.value = parseInt(idx);
+        option.text = [rooms[idx].rtype +': $'+ rooms[idx].price];
+        select.add( option );
+    }
+}
+
+generateRooms();
 
 </script>
 </body>
