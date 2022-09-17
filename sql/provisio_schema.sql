@@ -55,6 +55,6 @@ CREATE TABLE Reservation (
   Attraction_3 Char(255),
   TotalGuests int,
   PointsEarned int,
-  TotalPrice decimal(5,2),
+  TotalPrice decimal(7,2),
   PRIMARY KEY (ReservationID)
 );

@@ -43,8 +43,9 @@ public class Reservation extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("received: POST on reservation/");
 		System.out.println("getParameterNames: ");
-		System.out.println(request.getParameterNames());
+		System.out.println("before assignment: ");
 		
+		// INSPECT PARAMETERS
 		@SuppressWarnings("rawtypes")
 		Enumeration en=request.getParameterNames();
 		while(en.hasMoreElements())
@@ -55,28 +56,62 @@ public class Reservation extends HttpServlet {
 			System.out.println("Parameter Name is '"+param+"' and Parameter Value is '"+value+"'");
 		}
 		
-		// GET FORM DATA 
+		// GET FORM DATA AND ASSGIN TO VARS
 		String CustID = request.getParameter("cust-id");
 		String HotelID = request.getParameter("hotel");
 		String RoomID = request.getParameter("room");
+		// HANDLE ROOMTYPES
+		if (RoomID.equals("0")) {RoomID="DOUBLE";}
+		if (RoomID.equals("1")) {RoomID="QUEEN";}
+		if (RoomID.equals("2")) {RoomID="DOUBLE QUEEN";}
+		if (RoomID.equals("3")) {RoomID="KING";}
 		String ChkInDate = request.getParameter("checkin");
 		String ChkOutDate = request.getParameter("checkout");
-		String Amenity_1 = request.getParameterValues("amenities")[0];
-		String Amenity_2 = request.getParameterValues("amenities")[1];
-		String Amenity_3 = request.getParameterValues("amenities")[2];
-		String Attraction_1 = request.getParameterValues("attractions")[0];
-		String Attraction_2 = request.getParameterValues("attractions")[1];
-		String Attraction_3 = request.getParameterValues("attractions")[2];
+		
+		// HANDLE AMENITIES
+		String Amenity_1 = "";
+		String Amenity_2 = "";
+		String Amenity_3 = "";
+		try {
+			Amenity_1 = request.getParameterValues("amenities")[0];
+		} catch (Exception e) { System.out.println("no first amenity: "+ e);}
+		try {
+			Amenity_2 = request.getParameterValues("amenities")[1];
+		} catch (Exception e) { System.out.println("no second amenity: "+ e);}
+		try {
+			Amenity_3 = request.getParameterValues("amenities")[2];
+		} catch (Exception e) { System.out.println("no third amenity: "+ e);}
+		
+		// HANDLE ATTRACTIONS
+		String Attraction_1 = "";
+		String Attraction_2 = "";
+		String Attraction_3 = "";
+		try {
+			Attraction_1 = request.getParameterValues("attractions")[0];
+			} catch (Exception e) {System.out.println("no first attraction: "+ e);}
+		try {
+			Attraction_2 = request.getParameterValues("attractions")[1];
+			} catch (Exception e) {System.out.println("no second attraction: "+ e);}
+		try {
+			Attraction_3 = request.getParameterValues("attractions")[2];
+			} catch (Exception e) {System.out.println("no third attraction: "+ e);}
+		
 		String TotalGuests = request.getParameter("guests");
 		String PointsEarned = request.getParameter("points");
 		String TotalPrice = request.getParameter("total");
+		
+		System.out.println("after assignment: ");
 				
 		// CREATE NEW BOOKING OBJECT 
 		Booking booking = new Booking(
 				CustID, HotelID, RoomID, ChkInDate, ChkOutDate, Amenity_1, Amenity_2, Amenity_3,
 				Attraction_1, Attraction_2, Attraction_3, TotalGuests, PointsEarned, TotalPrice);
 		
+		System.out.println("after assignment: booking: "+ booking.toString());
+		
 		// CREATE reservation Dao
+		System.out.println("passing object: ");
+
 		ReservationDao rvDao = new ReservationDao();
 		String result = rvDao.insert(booking);
 		response.getWriter().print(result);

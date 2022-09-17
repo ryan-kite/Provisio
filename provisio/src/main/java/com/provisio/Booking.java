@@ -146,7 +146,15 @@ public class Booking {
 	public void setTotalPrice(String totalPrice) {
 		TotalPrice = totalPrice;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Booking [CustID=" + CustID + ", HotelID=" + HotelID + ", RoomID=" + RoomID + ", ChkInDate=" + ChkInDate
+				+ ", ChkOutDate=" + ChkOutDate + ", Amenity_1=" + Amenity_1 + ", Amenity_2=" + Amenity_2
+				+ ", Amenity_3=" + Amenity_3 + ", Attraction_1=" + Attraction_1 + ", Attraction_2=" + Attraction_2
+				+ ", Attraction_3=" + Attraction_3 + ", TotalGuests=" + TotalGuests + ", PointsEarned=" + PointsEarned
+				+ ", TotalPrice=" + TotalPrice + "]";
+	}
 	
 	
 }

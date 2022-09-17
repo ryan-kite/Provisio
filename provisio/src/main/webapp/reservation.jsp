@@ -44,9 +44,9 @@
                         <label for="hotel">Select Location</label>
                         <select id="hotel" class="form-control" name="hotel" onchange="handleHotel()">
                             <option value="none" selected disabled hidden>Select a city</option>
-                            <option value="1">TEXAS</option>
-                            <option value="2">ARKANSAS</option>
-                            <option value="3">SEATTLE</option>
+                            <option value="TEXAS">TEXAS</option>
+                            <option value="ARKANSAS">ARKANSAS</option>
+                            <option value="SEATTLE">SEATTLE</option>
                         </select>
                     </div>
                 
@@ -67,7 +67,7 @@
                     <!-- ENTER GUEST COUNT -->
                     <div class="col-md-4 mb-3">
                         <label for="guests">Number of guests</label>
-                        <input type="number" id="guests" class="form-control" name="guests" value="0" onchange="handleGuests(this.value)"> 
+                        <input type="number" id="guests" class="form-control" name="guests" value="0" onchange="handleGuests(this.value)" required> 
                     </div>    
 
                     <!-- SELECT ROOM -->
@@ -161,6 +161,7 @@
                                 <li class="list-group-item">Amenities:      <span id="sAmenities"></span></li>
                                 <li class="list-group-item">Attractions:    <span id="sAttractions"></span></li>
                                 <li class="list-group-item">Reward points:  <span id="sPoints"></span></li>
+                                <li id="sHoliday" class="list-group-item bg-info">Peak/Holiday Travel: <span>room +5%</span></li>
                                 <li class="list-group-item">Total cost:     <span id="sCost"></span></li>
                             </ul>
                         </div>
@@ -210,20 +211,23 @@ let attractions = []; // dependent on location
 let points = null;
 let total = null;
 let rooms = [];
+let dateRange = []
+let isRateHike = null;
+let holidays = ['7/4', '12/24', '12/31']
 
 
 // HANDLE ATTRACTIONS 
 function handleAttractions(hotelId=null) {
     console.log("handleAttractions hotelId: ", hotelId)
-    if (hotelId === "1") {
+    if (hotelId === "TEXAS") {
         document.getElementById("atx-for-texas").setAttribute('style', 'display: block');
         document.getElementById("atx-for-arkansas").setAttribute('style', 'display: none');
         document.getElementById("atx-for-seattle").setAttribute('style', 'display: none');
-    } else if (hotelId === "2") {
+    } else if (hotelId === "ARKANSAS") {
         document.getElementById("atx-for-texas").setAttribute('style', 'display: none');
         document.getElementById("atx-for-arkansas").setAttribute('style', 'display: block');
         document.getElementById("atx-for-seattle").setAttribute('style', 'display: none');
-    }  else if (hotelId === "3") {
+    }  else if (hotelId === "SEATTLE") {
         document.getElementById("atx-for-texas").setAttribute('style', 'display: none');
         document.getElementById("atx-for-arkansas").setAttribute('style', 'display: none');
         document.getElementById("atx-for-seattle").setAttribute('style', 'display: block');
@@ -238,19 +242,19 @@ function getAttractions() {
     // GET ATTRACTIONS based on hotel/location
     var atx = null;
     switch(hotel) {
-        case "1":
+        case "TEXAS":
             // TEXAS
             atx = document.querySelectorAll('#atx-for-texas option:checked');
             attractions = Array.from(atx).map(el => el.value);
             console.log(attractions) // ['none', '1', '2', '3']
             return attractions;
-        case "2":
+        case "ARKANSAS":
             // ARKANSAS
             atx = document.querySelectorAll('#atx-for-arkansas option:checked');
             attractions = Array.from(atx).map(el => el.value);
             console.log(attractions) // ['none', '1', '2', '3']
             return attractions;
-        case "3":
+        case "SEATTLE":
             // SEATTLE
             atx = document.querySelectorAll('#atx-for-seattle option:checked');
             attractions = Array.from(atx).map(el => el.value);
@@ -273,10 +277,18 @@ function handleTotal() {
     // CALCULATE NIGHTS
     nights = calcluateNights();
     if (nights == 0) {return}
+    
+	//  if the customer makes reservation for a holiday stay 
+    // (Fourth of July, Christmas Eve, New Years Eve) the increased rate is another 5%.
+    if (isRateHike === true) {
+    	roomPrice = (roomPrice * 1.05)
+    	console.log('roomPrice increase 5% (holiday): ',  roomPrice)
+    }
 
     // NIGHTS * ROOM
     total = parseFloat(nights) * parseFloat(roomPrice)
     console.log("total = room * nights: ", total)
+    
 
     // AMENITIES
     // "1" WI-FI (12.99 flat fee)
@@ -331,10 +343,53 @@ function showSummary() {
     // points earned:
     document.getElementById("sPoints").innerHTML = points;
     
+ 	// If holiday fee:
+ 	if (isRateHike) {
+ 		document.getElementById("sHoliday").setAttribute('style', 'display: block');
+ 	} else {
+ 		document.getElementById("sHoliday").setAttribute('style', 'display: none');
+ 	}
+    
     // total cost:
     document.getElementById("sCost").innerHTML = total.toFixed(2);
 
 };
+
+//formats dates without year for checking correctly when year rolls over
+function dateFormatter(date) {
+  return date.toLocaleDateString('en-us', { day: 'numeric', month: "numeric" })
+}
+
+// Generates all dates in checkin/checkout as range (list/array)
+// Borrowed some code from http://jsfiddle.net/jfhartsock/cM3ZU/
+// Helper method -overrides Date() using incremental steps (days) to create future dates in the range.
+Date.prototype.addDays = function(days) {
+  var dat = new Date(this.valueOf())
+  dat.setDate(dat.getDate() + days);
+  return dat;
+}
+// The driving date range generator function -> array(range) of dates.
+function generateDateRange(startDate, stopDate) {
+  var dateArray = new Array();
+  var currentDate = startDate;
+  while (currentDate <= stopDate) {
+    dateArray.push(currentDate)
+    currentDate = currentDate.addDays(1);
+  }
+  return dateArray;
+}
+
+// Computed handler determines if booking will increase additional 5%
+function isHolidayRate(dateRange) {
+  for (i = 0; i < dateRange.length; i++) {
+    console.log(dateFormatter(dateRange[i]));
+    var d = dateFormatter(dateRange[i])
+    if (holidays.includes(d)) {
+      console.log('true')
+      return true
+    }
+  }
+}
 
 function calcluateNights() {
     // add validation
@@ -351,14 +406,25 @@ function calcluateNights() {
 
     var date1 = new Date(checkin);
     var date2 = new Date(checkout);
-
+	
     console.log("date1: ", date1)
     console.log("date2: ", date2)
     var Difference_In_Time = date2 - date1;
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
     console.log("Difference_In_Days: (nights): ", Difference_In_Days)
-
-    return Difference_In_Days
+    
+    if (Difference_In_Days <= 0) {
+    	alert("Whoa... Time travel is not avaible at this location yet! Try something else.")
+    	return
+    }
+    
+    // generate all dates in stay
+    dateRange = generateDateRange(date1, (date1).addDays(Difference_In_Days));
+    // determines if any dates on a holiday and sets isRateHike flag 
+	isRateHike = isHolidayRate(dateRange);
+	console.log("isRateHike: ", isRateHike)
+    
+	return Difference_In_Days
 };
 
 function handlePoints() {
@@ -401,7 +467,7 @@ function handleRoomPrice() {
             alert("Select a room.")
         }
 
-    console.log("handleRoomPrice: roomPrice: (", roomPrice);
+    console.log("handleRoomPrice: roomPrice: ", roomPrice);
 };
 
 function handleGuests(g=0) {
