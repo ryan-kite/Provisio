@@ -112,7 +112,7 @@
                             <option value="none" selected disabled hidden>have some fun</option>
                             <option value="HIKING">HIKING</option>
                             <option value="WHALE WATCHING">WHALE WATCHING</option>
-                            <option value="MOUNT RAINEER">MOUNT RAINEER</option>
+                            <option value="MOUNT RAINEER">MOUNT RAINIER</option>
                         </select>
                     </div>
                 </div>
