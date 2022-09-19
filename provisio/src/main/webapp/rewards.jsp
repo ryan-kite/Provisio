@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,6 +30,22 @@
 
 <%@ include file ="/shared/user-session.jsp" %>
 
+<script>
+// Application User Session Management
+<%@ include file = "/js/user-session-management.js" %>
+</script>
+
+<%
+
+Connection connection = null;
+Statement statement = null;
+ResultSet resultSet = null;
+
+String uid = (String)session.getAttribute("userId");
+// casting to int
+int uid_int = Integer.parseInt(uid);
+%>
+
 <div class="container">
   <main>
     <div class="py-5 text-center">
@@ -30,38 +54,30 @@
       <p class="lead">At Hotel Provisio you earn reward points for every reservation you and your family make.  Use your reward points at a future
         date and enjoy a stay on us!  </p>
     </div>
+	<h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-primary">Your Rewards</span>
+      <span class="badge bg-primary rounded-pill">Points</span>
+    </h4>	
+	<%
+		try{ 
+		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio", "Provisio");
+		
+		String query = "SELECT * FROM reservation where CustID = ? ";
+		PreparedStatement pstmt = connection.prepareStatement(query);
+		pstmt.setInt(1, uid_int);
+		resultSet = pstmt.executeQuery();
+		while(resultSet.next()){
+	%>
 
     <div class="container-fluid">
       <div class="container-fluid">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your Rewards</span>
-          <span class="badge bg-primary rounded-pill">Points</span>
-        </h4>
         <ul class="list-group mb-10">
           <li class="list-group-item d-flex justify-content-xl-between">
             <div>
-              <h6 class="my-0">Your Stay: 2/24/22 - 2/26/22 </h6>
-              <small class="text-muted">Seattle Washington</small>
+              <h6 class="my-0">Your Stay: <%=resultSet.getString("ChkInDate") %> - <%=resultSet.getString("ChkOutDate") %> </h6>
+              <small class="text-muted"><%=resultSet.getString("HotelID") %></small>
             </div>
-            <span class="text-muted">50</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Your Stay: 4/16/22 - 4/20/22</h6>
-              <small class="text-muted">Seattle Washington</small>
-            </div>
-            <span class="text-muted">100</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Your Stay: 7/12/22 - 7/13/22</h6>
-              <small class="text-muted">Fayettville Arkansas</small>
-            </div>
-            <span class="text-muted">20</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-secondary">
-            <span>Total Points Earned</span>
-            <strong>170</strong>
+            <span class="text-muted"><%=resultSet.getString("PointsEarned") %></span>
           </li>
         </ul>
       </div>
@@ -69,6 +85,13 @@
   </main>
 <div>
 
+	<% 
+		}
+		
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+	%>
 <%@ include file = "/shared/footer.jsp" %>
 
 <script>

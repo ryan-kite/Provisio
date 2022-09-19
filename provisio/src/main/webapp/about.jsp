@@ -40,7 +40,6 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-
       <div class="row row-cols-md-1 row-cols-md-2 row-cols-md-3 ">
         <div class="col">
           <div class="card shadow-sm">
@@ -70,56 +69,51 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </div>
-  <hr><hr>
-  <div class="col-md-7 col-lg-8">
-     <h4 class="mb-3">Contact Us</h4>
-     <form class="needs-validation" novalidate>
-        <div class="row g-2">
-          <div class="col-sm-3">
-            <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
+  <hr>
+  <section class="py-5 text-center container">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h4 class="mb-3">Contact Us</h4>
+      <form class="needs-validation" novalidate>
+       <div class="row g-2">
+         <div class="col-sm-3">
+           <label for="firstName" class="form-label">First name</label>
+           <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+         </div>
 
-          <div class="col-sm-3">
-            <label for="lastName" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
+         <div class="col-sm-3">
+           <label for="lastName" class="form-label">Last name</label>
+           <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+         </div>
 
-          <div class="col-6">
-            <label for="email" class="form-label">Email </label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-            <div class="invalid-feedback">
-              Please enter a valid email address for shipping updates.
-            </div>
-          </div>
-          
-          <div class="col-6">
-            <label for="message" class="form-label">Message</label>
-            <textarea type="text" class="form-control" id="message" placeholder="Type message here" required> </textarea>
-            <div class="invalid-feedback">
-                Please enter a message.
-              </div>
-            </div>
-          <br><br><br><br><br>
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Send Message</button>
+         <div class="col-6">
+           <label for="email" class="form-label">Email </label>
+           <input type="email" class="form-control" id="email" placeholder="you@example.com">
+         </div>
+         
+         <div class="col-12">
+           <label for="message" class="form-label">Message</label>
+           <textarea type="text" class="form-control" id="message" placeholder="Type message here" required> </textarea>
+         </div>
+         <br><br><br><br><br>
+         <hr class="my-4">
+         <button class="w-100 btn btn-primary btn-lg" onclick="myFunction()">Send Message</button>
       </form>
-     </div>
-  </main>
+    </div>
+ </section>
+</main>
 
 <%@ include file = "/shared/footer.jsp" %>
 
 <script>
+// Handles form submit alert 
+function myFunction() {
+  alert("Thank you for your message!");
+}
+
 // Application User Session Management
 <%@ include file = "/js/user-session-management.js" %>
 </script>
