@@ -15,6 +15,16 @@
 
 <!-- INCLUDE STYLES --> 
 <%@ include file = "/shared/header-css.jsp" %>
+<style>
+/* CUSTOM OVERRIDE FOR THIS PAGE CARD IMAGE */
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    height: 18em;
+    object-fit: cover;
+}
+</style>
 </head>
 
 <body>
@@ -26,8 +36,17 @@
     <h2>Reservation</h2>
     <!-- IF: NO USER_ID ASK THEM TO SIGN-IN OR REGISTER -->
     <div class="row mt-2" id="reservation-message">
-        <div class="col-sm">
-           <p>Please <a href="/register.jsp">register</a> or <a href="/login.jsp">sign-in</a> to get started with your booking</p>
+        <div class="card">
+            <img class="card-img-top" src="https://imgcy.trivago.com/mag/2017/12/11105619/hotel-crescent-court-dallas-pool.jpeg" alt="PROVISIO TEXAS">
+            <div class="card-body text-center">
+              <h5 class="card-title">Your almost there</h5>
+              <p class="card-text">Please sign-in or register to get started with your booking.</p>
+              <a href="/login.jsp" class="btn btn-primary">SIGN-IN</a>
+              <a href="/register.jsp" class="btn btn-secondary">REGISTER</a>
+            </div>
+            <div class="card-footer">
+                <p class="text-center text-dark">As a member you'll receive Reward Loyalty Points™ for each & every night you stay.</p>
+            </div>
         </div>
         <div class="col-sm bg-light">
             <!-- holder -->
