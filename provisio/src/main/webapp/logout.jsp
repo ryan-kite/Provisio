@@ -22,18 +22,27 @@
 
 <%@ include file ="/shared/user-session.jsp" %>
 
+<div class="container">
 
-<h1> Logout </h1>
+ <h2 class="display-4 mb-4 mt-4">Signed out</h2>
+ <p>
+ 
+  <%session.invalidate();%>
+  <% HttpSession nsession = request.getSession(false);
+  if(nsession!=null) {
+     String data=(String)session.getAttribute( "fname" );
+     out.println(data);
+  }
+  else
+    out.println("You've been successfully logged out. See you soon.");
+  %>
+   
+ <p>
+</div>
 
-<%session.invalidate();%>
-<% HttpSession nsession = request.getSession(false);
-if(nsession!=null) {
-   String data=(String)session.getAttribute( "fname" );
-   out.println(data);
-}
-else
-  out.println("Session is not active");
-%>
+
+
+
 <script>
 function signout() {
 	// clear the user session

@@ -22,23 +22,24 @@
 
 <%@ include file ="/shared/user-session.jsp" %>
 
-<main>
-  <section class="py-5 text-center container">
+<div class="container">
+  <h2 class="display-4 mb-4 mt-4">About</h2>
+  <section class="text-center container">
     <div class="row py-lg-1">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">The Hotel Provisio</h1>
+        <h2 class="fw-light">The Hotel Provisio</h2>
         <p class="lead text-muted">Hotel Provisio was founded in 1978 by Carol and Tom Whendall.  As avid travelers early in life, Carol and Tom believed that 
         a good hotel should offer an "experience" in itself. Since that first location in outskirts of Fayettville Arkansas, the Whendalls have opened 2 other
         locations with a passion of giving families longlasting memories.</p>
         <p>
-          <a href="register.jsp" class="btn btn-primary my-2">Register Now</a>
-          <a href="login.jsp" class="btn btn-secondary my-2">Log In</a>
+          <a href="register.jsp" class="btn btn-primary my-2">REGISTER NOW</a>
+          <a href="login.jsp" class="btn btn-secondary my-2">SIGN-IN</a>
         </p>
       </div>
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
+  <div class="album bg-light">
     <div class="container">
       <div class="row row-cols-md-1 row-cols-md-2 row-cols-md-3 ">
         <div class="col">
@@ -75,21 +76,21 @@
   </div>
   <hr>
   <section class="py-5 text-center container">
-    <div class="col-lg-6 col-md-8 mx-auto">
-      <h4 class="mb-3">Contact Us</h4>
+    <div class="col-md-8 mx-auto">
+      <h3 class="mb-3">Contact Us</h3>
       <form class="needs-validation" novalidate>
        <div class="row g-2">
-         <div class="col-sm-3">
+         <div class="col-sm-4">
            <label for="firstName" class="form-label">First name</label>
            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
          </div>
 
-         <div class="col-sm-3">
+         <div class="col-sm-4">
            <label for="lastName" class="form-label">Last name</label>
            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
          </div>
 
-         <div class="col-6">
+         <div class="col-4">
            <label for="email" class="form-label">Email </label>
            <input type="email" class="form-control" id="email" placeholder="you@example.com">
          </div>
@@ -100,11 +101,12 @@
          </div>
          <br><br><br><br><br>
          <hr class="my-4">
-         <button class="w-100 btn btn-primary btn-lg" onclick="myFunction()">Send Message</button>
+         <button class="w-100 btn btn-primary btn-lg" onclick="myFunction()">SEND MESSAGE</button>
+         </div>
       </form>
     </div>
  </section>
-</main>
+</div>
 
 <%@ include file = "/shared/footer.jsp" %>
 

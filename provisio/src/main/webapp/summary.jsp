@@ -45,31 +45,31 @@
  int uid_int = Integer.parseInt(uid);
  %>
 <div class="container">
- <div class="row">
-  <div class="col-md-12">
-   <h1>Summary</h1>
-   <h2 align="center">Your Current Reservations</h2>
-   <!--  SUMMARY TABLE -->
-   <table class="table table-striped table-sm">
-   <thead  style="font-size: .8em;">
-    <tr>
-     <th>ResID</th>
-     <th>Hotel</th>
-     <th>Room</th>
-     <th>CheckIn</th>
-     <th>CheckOut</th>
-     <th>Guests</th>
-     <th>Price</th>
-     <th>Amen1</th>
-     <th>Amen2</th>
-     <th>Amen3</th>
-     <th>Attr1</th>
-     <th>Attr2</th>
-     <th>Attr3</th>
-     <th>Points</th>
-    </tr>
-   </thead>
-   <tbody  style="font-size: .8em;">
+  <h2 class="display-4 mb-4 mt-4">Summary</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 align="center">Your Current Reservations</h3>
+      <!--  SUMMARY TABLE -->
+      <table class="table table-striped table-sm">
+      <thead  style="font-size: .8em;">
+        <tr>
+        <th>ResID</th>
+        <th>Hotel</th>
+        <th>Room</th>
+        <th>CheckIn</th>
+        <th>CheckOut</th>
+        <th>Guests</th>
+        <th>Price</th>
+        <th>Amen1</th>
+        <th>Amen2</th>
+        <th>Amen3</th>
+        <th>Attr1</th>
+        <th>Attr2</th>
+        <th>Attr3</th>
+        <th>Points</th>
+        </tr>
+      </thead>
+      <tbody  style="font-size: .8em;">
    <%
    try {
      connection = DriverManager.getConnection(

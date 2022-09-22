@@ -16,7 +16,7 @@ try {
 		authenticated=(String)session.getAttribute("authenticated");
 		
 	} else {	
-		out.print("<div class='alert alert-info text-left'> <a class='text-dark' href='/login.jsp'>Login to get booking!</a></div>");
+		out.print("<div class='alert alert-info text-left'> <a class='text-dark' href='/login.jsp'>Sign-in to get booking!</a></div>");
 	}
 } catch (Exception e) {
 	System.out.println("Exception getting user session data: " + e);

@@ -33,7 +33,7 @@
 <%@ include file ="/shared/user-session.jsp" %>
 
 <div class="container">
-    <h2>Reservation</h2>
+    <h2 class="display-4 mb-4 mt-4">Reservation</h2>
     <!-- IF: NO USER_ID ASK THEM TO SIGN-IN OR REGISTER -->
     <div class="row mt-2" id="reservation-message">
         <div class="card">

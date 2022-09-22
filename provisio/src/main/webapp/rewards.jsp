@@ -47,10 +47,10 @@ int uid_int = Integer.parseInt(uid);
 %>
 
 <div class="container">
+<h2 class="display-4 mb-4 mt-4">Rewards Summary</h2>
   <main>
     <div class="py-5 text-center">
       <img src="/imgs/Rewards.jpg" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h2>Rewards Summary</h2>
       <p class="lead">At Hotel Provisio you earn reward points for every reservation you and your family make.  Use your reward points at a future
         date and enjoy a stay on us!  </p>
     </div>

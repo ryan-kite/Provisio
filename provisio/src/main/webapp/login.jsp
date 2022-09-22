@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta charset="UTF-8">
-<title>Provisio - Login</title>
+<title>Provisio - Sign-in</title>
 
 <!--  TODO: ADD ICON -->
 <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
@@ -23,30 +23,41 @@
 
 	<%@ include file="/shared/user-session.jsp"%>
 
-	<div align="center">
-		<h1>Provisio Login Page</h1>
-		<form action="<%=request.getContextPath()%>/login" method="post">
-			<table style="with: 100%">
-				<tr>
-					<td>User email</td>
-					<td><input type="email" name="username" /></td>
-				</tr>
-				<tr>
-					<td>User Password</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="Submit" />
-						<div id="failed-login" class="alert alert-danger">Username
-							or password was incorrect. Try again.</div></td>
-
-					<td>Not A Member Yet? <a href="/register.jsp">Register</a>
-					</td>
-				</tr>
-			</table>
-		</form>
+	<div class="container">
+		<h2 class="display-4 mb-4 mt-4">Sign-in</h2>
+        
+		<div class="row">
+        	<div class="col-md-4 offset-md-4">
+            	<form action="<%=request.getContextPath()%>/login" method="post">
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" name="username" class="form-control"/>
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" name="password" class="form-control"/>
+					</div>
+					<div class="form-group text-right">
+						<input class="btn btn-primary " type="submit" value="SIGN-IN" />   
+					</div>
+					<div class="form-group">
+						<div id="failed-login" class="alert alert-danger"> 
+							Username or password was incorrect. Try again.
+						</div>
+					</div>
+				
+					<div class="form-group py-4">
+				
+						<p>Not A Member Yet?  <a class="btn text-link" href="/register.jsp">Register</a></p>
+			
+    				</div>
+   				</form>
+         	</div>
+        	<div class="col-sm-4">
+         		<!--  HOLDER  -->
+        	</div>
+        </div>
 	</div>
-
 	<%@ include file="/shared/footer.jsp"%>
 
 	<script>

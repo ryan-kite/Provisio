@@ -22,8 +22,8 @@
 
 <%@ include file ="/shared/user-session.jsp" %>
 
-<div class="container mt-5 mb-lg-5 pb-5">
-    <h1 class="text-center text-lg-left h2">Provisio Locations</h1>
+<div class="container mb-lg-5 pb-5">
+    <h2 class="display-4 mb-4 mt-4">Provisio Locations</h2>
     <div class="mt-4 location_listings">
       <div class="row py-3 bg-light-gray-even">
         <div class="col-lg-2 col-md-6 text-center mx-auto image">

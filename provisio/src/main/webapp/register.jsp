@@ -23,18 +23,14 @@
 <%@ include file ="/shared/user-session.jsp" %>
 
 <div class="container">
+  <h2 class="display-4 mb-4 mt-4">Register</h2>
   <div class="row mt-2">  
     <div class="col-12">
-      <h2>Register</h2>
       <p class="lead">Create your account and get booking.</p>
     </div>
   </div>
   <div class="row mt-2">
-    <div class="col-2">
-      <h4><!-- HOLDER--> </h4>
-      <p> <!-- HOLDER--> </p>
-    </div>
-    <div class="col-8 bg-light pt-3 pb-3">
+    <div class="col-12 bg-light pt-3 pb-3">
       <form action="/register" method="post" name="regform">
         <div class="form-row">
           <div class="col">
@@ -72,12 +68,8 @@
             <small id="password-feedback2" class="form-text"></small>
           </div>
         </div>
-		    <button type="submit" id="submit" class="btn btn-primary float-right">Register</button>
+		    <button type="submit" id="submit" class="btn btn-primary float-right">REGISTER</button>
 		</form>
-    </div>
-    <div class="col-2">
-      <h4><!-- HOLDER--> </h4>
-      <p> <!-- HOLDER--> </p>
     </div>
   </div>
   <div class="row mt-2">

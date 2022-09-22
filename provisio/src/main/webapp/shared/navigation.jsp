@@ -11,7 +11,7 @@
      
      <!--  if not authenticated -->
      <a class="py-2 d-none d-md-inline-block" id="register-tab" href="register.jsp">Register</a>
-     <a class="py-2 d-none d-md-inline-block" id="login-tab" href="/login.jsp">Login</a>
+     <a class="py-2 d-none d-md-inline-block" id="login-tab" href="/login.jsp">Sign-in</a>
    
      <!--  If user is authenticated  -->
      <a class="py-2 d-none d-md-inline-block" id="rewards-tab" href="/rewards.jsp">Rewards</a>
