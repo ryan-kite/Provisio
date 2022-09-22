@@ -37,19 +37,17 @@
 						<label>Password</label>
 						<input type="password" name="password" class="form-control"/>
 					</div>
-					<div class="form-group text-right">
-						<input class="btn btn-primary " type="submit" value="SIGN-IN" />   
-					</div>
 					<div class="form-group">
-						<div id="failed-login" class="alert alert-danger"> 
+						<input class="btn btn-primary " type="submit" value="SIGN-IN" />   
+						
+                        <div id="failed-login" class="alert alert-danger mt-3"> 
 							Username or password was incorrect. Try again.
 						</div>
 					</div>
-				
-					<div class="form-group py-4">
-				
-						<p>Not A Member Yet?  <a class="btn text-link" href="/register.jsp">Register</a></p>
-			
+					<div class="form-group"></div>
+						<div class="alert alert-secondary" role="alert">
+							Not a member yet? <a href="/register.jsp" class="alert-link">Register</a> to get started.
+						</div>
     				</div>
    				</form>
          	</div>
