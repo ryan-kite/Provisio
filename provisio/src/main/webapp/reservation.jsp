@@ -37,10 +37,9 @@
     <div class="row mt-2" id="reservation-form">
         <div class="col-12">                    
             <form id="reservation-form" action="/reservation" method="post">
-                
                 <!-- SELECT LOCATION / HOTELID-->
                 <div class="form-row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="hotel">Select Location</label>
                         <select id="hotel" class="form-control" name="hotel" onchange="handleHotel()">
                             <option value="none" selected disabled hidden>Select a city</option>
@@ -49,15 +48,17 @@
                             <option value="SEATTLE">SEATTLE</option>
                         </select>
                     </div>
-                
+                </div>    
+                <!-- SELECT LOCATION / HOTELID-->
+                <div class="form-row">
                     <!-- SELECT DATES / CHECK-IN -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="checkin">Check-in</label>
                         <input type="date" id="checkin" class="form-control" name="checkin">
                     </div>
 
                     <!-- CHECK-OUT -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="checkout">Check-out</label>
                         <input type="date" id="checkout" class="form-control" name="checkout">
                     </div>
@@ -65,13 +66,13 @@
            
                 <div class="form-row">
                     <!-- ENTER GUEST COUNT -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="guests">Number of guests</label>
-                        <input type="number" id="guests" class="form-control" name="guests" value="0" onchange="handleGuests(this.value)" required> 
+                        <input type="number" id="guests" class="form-control" name="guests" onchange="handleGuests(this.value); guestCount(this.value);" min="1" max="5" required> 
                     </div>    
 
                     <!-- SELECT ROOM -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="room">Select room type</label>
                         <select id="room" class="form-control" name="room" onchange="handleRoomPrice(this.value)">
                             <option value="none" selected disabled hidden>pick a room</option>
@@ -82,7 +83,7 @@
 
                 <div class="form-row">
                     <!-- SELECT AMENTITES -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="amenities">Choose your amenities</label>
                         <select id="amenities" class="form-control" name="amenities" multiple onchange="handleAmenities(this.value)">
                             <option value="none" selected disabled hidden>pick some options</option>
@@ -94,7 +95,7 @@
 
 
                     <!-- SELECT ATTRACTIONS -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="attrations">Choose your attractions</label>
                         <select id="atx-for-texas" class="form-control" name="attractions" multiple onchange="getAttractions()">
                             <option value="none" selected disabled hidden>have some fun</option>
@@ -119,13 +120,13 @@
 
                 <div class="form-row">
                     <!-- TOTAL POINT -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="points">Total points earned</label>
                         <input type="text" id="points" class="form-control" name="points" readonly>
                     </div>
 
                     <!-- TOTAL COSTS -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="total">Total costs</label>
                         <input type="text" id="total" class="form-control" name="total" readonly>
                     </div>
@@ -134,41 +135,60 @@
                 <div class="form-row">
                     <!-- HIDDEN FIELDS -->
                     <!-- USER_ID/CUSTID -->
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <input type="text" id="cust-id" class="form-control" name="cust-id" hidden>
                     </div>
                     
                     <!-- GENERATE SUMMARY -->
-                    <div class="col-md-4 mb-3 text-right">
+                    <div class="col-md-6 mb-3 text-right">
                         <button type="button" class="btn btn-secondary" onclick="handleTotal()">PREVIEW</button>
                     </div>
                 </div>
                 
                 <!-- SUBMIT -->
-                <div class="row" id="summary" style="display: none">
-                    <div class="col-md-2">
-                        <!-- HOLDER -->
-                    </div>
-                    <div class="col-md-6 offset-md-2">
-                        <div class="card">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Location:       <span id="sHotel"></span></li>
-                                <li class="list-group-item">Nights:         <span id="sNights"></span></li>
-                                <li class="list-group-item">Check-in:       <span id="sCheckin"></span></li>
-                                <li class="list-group-item">Check-out:      <span id="sCheckout"></span></li>
-                                <li class="list-group-item">Room Type:      <span id="sRoomType"></span></li>
-                                <li class="list-group-item">Guests:         <span id="sGuests"></span></li>
-                                <li class="list-group-item">Amenities:      <span id="sAmenities"></span></li>
-                                <li class="list-group-item">Attractions:    <span id="sAttractions"></span></li>
-                                <li class="list-group-item">Reward points:  <span id="sPoints"></span></li>
-                                <li id="sHoliday" class="list-group-item bg-info">Peak/Holiday Travel: <span>room +5%</span></li>
-                                <li class="list-group-item">Total cost:     <span id="sCost"></span></li>
-                            </ul>
-                        </div>
-                         <div class="col-md-12 mb-3 text-right mt-3">
+                <div id="summary" style="display: none">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="card">
+                             <div class="card-header">
+                               Reservation summary
+                             </div>
+                             <div class="card-body">
+                               <ul class="list-group list-group-flush">
+                                   <li class="list-group-item">Location:       <span id="sHotel"></span></li>
+                                   <li class="list-group-item">Nights:         <span id="sNights"></span></li>
+                                   <li class="list-group-item">Check-in:       <span id="sCheckin"></span></li>
+                                   <li class="list-group-item">Check-out:      <span id="sCheckout"></span></li>
+                                   <li class="list-group-item">Room Type:      <span id="sRoomType"></span></li>
+                                   <li class="list-group-item">Guests:         <span id="sGuests"></span></li>
+                               </ul>
+                             </div>
+                             <div class="card-footer text-right">
+                               
+                             </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="card">
+                             <div class="card-header">
+                              Confirm or makes changes.
+                             </div>
+                             <div class="card-body">
+                               <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">Amenities:      <span id="sAmenities"></span></li>
+                                  <li class="list-group-item">Attractions:    <span id="sAttractions"></span></li>
+                                  <li class="list-group-item">Reward points:  <span id="sPoints"></span></li>
+                                  <li id="sHoliday" class="list-group-item bg-info">Peak/Holiday Travel: <span>room +5%</span></li>
+                                  <li class="list-group-item">Total cost:     <span id="sCost"></span></li>
+                               </ul>
+                              </div>
+                          </div>
+                          <div class="card-footer text-right">
+                            <input type="reset" value="CANCEL" onclick="window.location.reload()" class="btn btn-default">
                             <button type="submit" class="btn btn-primary">CONFIRM RESERVATION</button>
-                        </div>
-                    </div>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </form>
         </div>
@@ -215,6 +235,23 @@ let dateRange = []
 let isRateHike = null;
 let holidays = ['7/4', '12/24', '12/31']
 
+// HANDLE FORM RESET
+function formReset() {
+	document.getElementById("reservation-form").reset();
+}
+
+// HANDLE GUEST VALIDATION
+function guestCount(val) {
+	console.log("Guest count: ", val)
+    if (parseInt(val) > 5) {
+    	alert("Sorry, 5 guests max per room.")
+    	return
+       }
+    if (parseInt(val) === 0 || guests === null) {
+        alert("Hold on, please enter how many people are staying.")
+        return
+    }
+}
 
 // HANDLE ATTRACTIONS 
 function handleAttractions(hotelId=null) {
@@ -238,8 +275,8 @@ function handleAttractions(hotelId=null) {
     }
 };
 
+// GET ATTRACTIONS based on hotel/location
 function getAttractions() {
-    // GET ATTRACTIONS based on hotel/location
     var atx = null;
     switch(hotel) {
         case "TEXAS":
@@ -266,19 +303,32 @@ function getAttractions() {
     }
 };
 
+// HANDLE VALIDATION AND TOTALING
 function handleTotal() {
-
-    // isRoom?
-    if (roomPrice == null || roomPrice == "none" || roomPrice == 0.00 ) {
-        alert("Select a room first.")
+	
+	// Validate hotel
+	if (hotel === null) {
+		alert("Please selet a hotel.")
+	    return
+	}
+	
+	// CALCULATE NIGHTS
+    nights = calculateNights();
+    if (nights == 0) {return}
+	
+    // Validate guests
+	if (guests === null) {
+		alert("Please enter how many guests.")
+	    return
+	}
+	
+    // Validate room
+    if (roomPrice === null || roomPrice == "none" || roomPrice == 0.00 ) {
+        alert("Please select a room.")
         return
     }
- 
-    // CALCULATE NIGHTS
-    nights = calcluateNights();
-    if (nights == 0) {return}
     
-	//  if the customer makes reservation for a holiday stay 
+	//  If the customer makes reservation for a holiday stay 
     // (Fourth of July, Christmas Eve, New Years Eve) the increased rate is another 5%.
     if (isRateHike === true) {
     	roomPrice = (roomPrice * 1.05)
@@ -315,6 +365,7 @@ function handleTotal() {
 
 };
 
+// HANDEL RESERVATION PREVIEW
 function showSummary() {
     document.getElementById("summary").setAttribute('style', 'display: block');
     // location:
@@ -355,12 +406,12 @@ function showSummary() {
 
 };
 
-//formats dates without year for checking correctly when year rolls over
+// FORMATS DATES without year for checking correctly when year rolls over
 function dateFormatter(date) {
   return date.toLocaleDateString('en-us', { day: 'numeric', month: "numeric" })
 }
 
-// Generates all dates in checkin/checkout as range (list/array)
+// GENERATES all dates in checkin/checkout as range (list/array)
 // Borrowed some code from http://jsfiddle.net/jfhartsock/cM3ZU/
 // Helper method -overrides Date() using incremental steps (days) to create future dates in the range.
 Date.prototype.addDays = function(days) {
@@ -368,7 +419,7 @@ Date.prototype.addDays = function(days) {
   dat.setDate(dat.getDate() + days);
   return dat;
 }
-// The driving date range generator function -> array(range) of dates.
+// The DRIVER for date range generator function -> array(range) of dates.
 function generateDateRange(startDate, stopDate) {
   var dateArray = new Array();
   var currentDate = startDate;
@@ -379,7 +430,7 @@ function generateDateRange(startDate, stopDate) {
   return dateArray;
 }
 
-// Computed handler determines if booking will increase additional 5%
+// COMPUTED handler determines if booking will increase additional 5%
 function isHolidayRate(dateRange) {
   for (i = 0; i < dateRange.length; i++) {
     console.log(dateFormatter(dateRange[i]));
@@ -391,7 +442,8 @@ function isHolidayRate(dateRange) {
   }
 }
 
-function calcluateNights() {
+// HANDLES NIGHTS
+function calculateNights() {
     // add validation
     checkin = document.getElementById("checkin").value;
     console.log("checkin: ", checkin)
@@ -427,6 +479,7 @@ function calcluateNights() {
 	return Difference_In_Days
 };
 
+// HANLDES REWARDS POINTS
 function handlePoints() {
     // POINTS = 150 * NIGHTS
     points = 150 * nights
@@ -434,18 +487,21 @@ function handlePoints() {
     return points;
 };
 
+// HANDLES AMENITIES
 function handleAmenities() {
     amenities = document.getElementById("amenities").value;
     console.log("amenities: ", amenities)
 
 };
 
+// HANDLES HOTEL LOCATION
 function handleHotel() {
     hotel = document.getElementById("hotel").value;
     console.log("hotel: ", hotel)
     handleAttractions(hotel);
 };
 
+// HANDLES ROOM PRICE
 function handleRoomPrice() {
     roomId = document.getElementById("room").value;
     console.log()
@@ -470,12 +526,14 @@ function handleRoomPrice() {
     console.log("handleRoomPrice: roomPrice: ", roomPrice);
 };
 
+// HANLDES GUESTS
 function handleGuests(g=0) {
     console.log("guests: ", g);
     guests = g;
     return guests;
 }
 
+// GENERATES ROOMS AND PRICING with percentages increases.
 function generateRooms() {
     console.log("generating rooms")
     select = document.getElementById( 'room' );
@@ -500,7 +558,7 @@ function generateRooms() {
         select.add( option );
     }
 }
-
+// CALLED ON PAGE LOAD
 generateRooms();
 
 </script>
