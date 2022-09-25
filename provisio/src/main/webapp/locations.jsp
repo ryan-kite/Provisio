@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+    
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,50 +27,54 @@
 <%@ include file = "/shared/navigation.jsp" %>
 
 <%@ include file ="/shared/user-session.jsp" %>
+<%
+ Connection connection = null;
+ Statement statement = null;
+ ResultSet resultSet = null;
 
+ //String uid = (String) session.getAttribute("userId");
+ // casting to int
+ //int uid_int = Integer.parseInt(uid);
+ %>
 <div class="container mb-lg-5 pb-5">
     <h2 class="display-4 mb-4 mt-4">Provisio Locations</h2>
-    <div class="mt-4 location_listings">
+  
+        <%
+   try {
+     connection = DriverManager.getConnection(
+         "jdbc:mysql://localhost:3306/provisio?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "provisio",
+         "Provisio");
+
+     String query = "SELECT location, group_concat(attractionDesc) AS 'attractions' FROM attractions GROUP BY Location ORDER BY Location";
+     PreparedStatement pstmt = connection.prepareStatement(query);
+     resultSet = pstmt.executeQuery();
+     while (resultSet.next()) {
+   %>
+   	<!--  Rows of data goes here -->
+   	<div class="mt-4 location_listings">
       <div class="row py-3 bg-light-gray-even">
         <div class="col-lg-2 col-md-6 text-center mx-auto image">
-          <img src="https://www.kayak.com/rimg/dimg/a2/79/d6e38ab7-city-12601-168b97dec51.jpg?width=400&height=300&xhint=1533&yhint=1431&crop=true" alt="Arkansas Provisio" class="img-fluid">
+          <img src="imgs/<%=resultSet.getString("location")%>.jpg" alt="<%=resultSet.getString("location")%> Provisio" class="img-fluid">
         </div>
         <div class="col-lg-8 mt-4 mt-lg-0">
-          <h2 class="h5">Arkansas Hotel Provisio </h2>
+          <h2 class="h5"><%=resultSet.getString("location")%> Hotel Provisio </h2>
           <div class="d-md-flex">
-            <p class="mb-1 pr-md-2 border-black border-md-right">Provisio At Arkansas</p>
-            <p class="mb-1 px-md-2 border-black border-md-right">Arkansas, 72143</p>
-            <a href="tel:(321) 867-5000" class="mb-1 px-md-2 text-black"><strong>(402)-213-0476</strong></a>
+            <p class="mb-1 pr-md-2 border-black border-md-right">Provisio At <%=resultSet.getString("location")%></p>
+            <p class="mb-1 px-md-2 border-black border-md-right"><%=resultSet.getString("location")%></p>
+            
           </div>
          
           <ul class="pl-3">
             <ui class="mb-0">Attractions:</ui>
-            <li class="mb-0">Horse Back Riding</li>
-            <li class="mb-0">Dirt Biking </li>
-            <li class="mb-0">Sky Diving</li>
-          </ul>
-        </div>
-        <div class="col-lg-2 align-self-center text-center p-0">
-          <a href="/reservation.jsp" class="btn btn-outline-dark px-5 py-2">Select</a>
-        </div>
-      </div>
-
-      <div class="row py-3 bg-light-gray-even">
-        <div class="col-lg-2 col-md-6 text-center mx-auto image">
-          <img src="https://www.hotelscombined.com/news/wp-content/uploads/sites/314/2018/10/featured-image-GettyImages-618765534-3.jpg" alt="Seattle Hotel" class="img-fluid">
-        </div>
-        <div class="col-lg-8 mt-4 mt-lg-0">
-          <h2 class="h5">Seattle Hotel Provisio</h2>
-          <div class="d-md-flex">
-            <p class="mb-1 pr-md-2 border-black border-md-right">1415 5th Avenue</p>
-            <p class="mb-1 px-md-2 border-black border-md-right">Seattle, WA 98101</p>
-            <a href="tel:(301) 286-2000" class="mb-1 px-md-2 text-black"><strong>(206) 971-8000</strong></a>
-          </div>
-          <ul class="pl-3">
-            <ui class="mb-0">Attractions: </ui>
-            <li class="mb-0">Hiking</li>
-            <li class="mb-0">Whale Watching </li>
-            <li class="mb-0">Mount Rainier</li>
+            <%
+            String attractionStr = resultSet.getString("attractions");
+            String[] attractArray = attractionStr.split(",");
+            for(String singleAttraction: attractArray) {
+            %>
+            	<li class="mb-0"><%= singleAttraction%></li>
+            <%
+            } //end for loop
+            %>
             
           </ul>
         </div>
@@ -72,29 +82,14 @@
           <a href="/reservation.jsp" class="btn btn-outline-dark px-5 py-2">Select</a>
         </div>
       </div>
+   <%
+   }
 
-      <div class="row py-3 bg-light-gray-even">
-        <div class="col-lg-2 col-md-6 text-center mx-auto image">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBjzEWnGuqwHQ0Jqlg7umEvufZwr-_DHS8bbvHeO41LCwkHySX1cVhD-lIiY6dkj13ylo&usqp=CAU" alt="Johnson Space Center" class="img-fluid">
-        </div>
-        <div class="col-lg-8 mt-4 mt-lg-0">
-          <h2 class="h5">Dallas Hotel Provisio</h2>
-          <div class="d-md-flex">
-            <p class="mb-1 pr-md-2 border-black border-md-right">300 Reunion Blvd</p>
-            <p class="mb-1 px-md-2 border-black border-md-right">Dallas, TX 75207</p>
-            <a href="tel:(281) 483-0123" class="mb-1 px-md-2 text-black"><strong>(214) 651-1234</strong></a>
-          </div>
-          <ul class="pl-3">
-            <ui class="mb-0">Attractions: </ui>
-            <li class="mb-0">Fishing</li>
-            <li class="mb-0">Scuba  </li>
-            <li class="mb-0">ATV</li>
-          </ul>
-        </div>
-        <div class="col-lg-2 align-self-center text-center p-0">
-          <a href="/reservation.jsp" class="btn btn-outline-dark px-5 py-2">Select</a>
-        </div>
-      </div>
+   } catch (Exception e) {
+   e.printStackTrace();
+   }
+   %>
+  
     </div>
 
 <%@ include file = "/shared/footer.jsp" %>
