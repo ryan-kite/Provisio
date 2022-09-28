@@ -59,8 +59,7 @@
         <div class="col-lg-8 mt-4 mt-lg-0">
           <h2 class="h5"><%=resultSet.getString("location")%> Hotel Provisio </h2>
           <div class="d-md-flex">
-            <p class="mb-1 pr-md-2 border-black border-md-right">Provisio At <%=resultSet.getString("location")%></p>
-            <p class="mb-1 px-md-2 border-black border-md-right"><%=resultSet.getString("location")%></p>
+            <p class="mb-1 pr-md-2 border-black border-md-right">Provisio <%=resultSet.getString("location")%></p>
             
           </div>
          

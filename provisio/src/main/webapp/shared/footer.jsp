@@ -5,30 +5,28 @@
       <small class="d-block mb-3 text-muted">&copy; 2015-2023</small>
     </div>
     <div class="col-6 col-md">
-      <h5>Features</h5>
+      <h5>Inquiries</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
+        <li><a class="text-muted" href="#">Privacy</a></li>
+        <li><a class="text-muted" href="#">Legal</a></li>
+        <li><a class="text-muted" href="#">Media</a></li>
+        <li><a class="text-muted" href="#">Press</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h5>Resources</h5>
+      <h5>Locations</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Resource</a></li>
-        <li><a class="text-muted" href="#">Resource name</a></li>
-        <li><a class="text-muted" href="#">Another resource</a></li>
-        <li><a class="text-muted" href="#">Final resource</a></li>
+        <li><a class="text-muted" href="#">Provisio </a></li>
+        <li><a class="text-muted" href="#">Seattle</a></li>
+        <li><a class="text-muted" href="#">Texas</a></li>
+        <li><a class="text-muted" href="#">Arkansas</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
-      <h5>Resources</h5>
+      <h5>Venue</h5>
       <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Events</a></li>
         <li><a class="text-muted" href="#">Business</a></li>
-        <li><a class="text-muted" href="#">Education</a></li>
         <li><a class="text-muted" href="#">Government</a></li>
         <li><a class="text-muted" href="#">Gaming</a></li>
       </ul>

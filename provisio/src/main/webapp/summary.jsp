@@ -45,10 +45,10 @@
  int uid_int = Integer.parseInt(uid);
  %>
 <div class="container">
-  <h2 class="display-4 mb-4 mt-4">Summary</h2>
+  <h2 class="display-4 mb-4 mt-4">Reservation Summary</h2>
   <div class="row">
     <div class="col-md-12">
-      <h3 align="center">Your Current Reservations</h3>
+    <p class="lead">View your current & past stays with Provisio. </h4>
       <!--  SUMMARY TABLE -->
       <table class="table table-striped table-sm">
       <thead  style="font-size: .8em;">
