@@ -39,7 +39,7 @@
         <div class="card">
             <img class="card-img-top" src="https://imgcy.trivago.com/mag/2017/12/11105619/hotel-crescent-court-dallas-pool.jpeg" alt="PROVISIO TEXAS">
             <div class="card-body text-center">
-              <h5 class="card-title">Your almost there</h5>
+              <h5 class="card-title">You're almost there</h5>
               <p class="card-text">Please sign-in or register to get started with your booking.</p>
               <a href="/login.jsp" class="btn btn-primary">SIGN-IN</a>
               <a href="/register.jsp" class="btn btn-secondary">REGISTER</a>
