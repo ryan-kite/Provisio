@@ -159,7 +159,7 @@
                     </div>
                     
                     <!-- GENERATE SUMMARY -->
-                    <div class="col-md-6 mb-3 text-right">
+                    <div class="col-md-6 mb-3 text-right pr-3">
                         <button type="button" class="btn btn-secondary" onclick="handleTotal()">PREVIEW</button>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                                    <li class="list-group-item">Guests:         <span id="sGuests"></span></li>
                                </ul>
                              </div>
-                             <div class="card-footer text-right">
+                             <div class="text-right"> <!--  faux footer -->
                                
                              </div>
                           </div>
@@ -198,11 +198,11 @@
                                   <li class="list-group-item">Attractions:    <span id="sAttractions"></span></li>
                                   <li class="list-group-item">Reward points:  <span id="sPoints"></span></li>
                                   <li id="sHoliday" class="list-group-item bg-info">Peak/Holiday Travel: <span>room +5%</span></li>
-                                  <li class="list-group-item">Total cost:     <span id="sCost"></span></li>
+                                  <li class="list-group-item">Total cost:     $<span id="sCost"></span></li>
                                </ul>
                               </div>
                           </div>
-                          <div class="card-footer text-right">
+                          <div class="text-right pt-3 pr-1">
                             <input type="reset" value="CANCEL" onclick="window.location.reload()" class="btn btn-default">
                             <button type="submit" class="btn btn-primary">CONFIRM RESERVATION</button>
                           </div>
@@ -253,6 +253,7 @@ let rooms = [];
 let dateRange = []
 let isRateHike = null;
 let holidays = ['7/4', '12/24', '12/31']
+
 
 // HANDLE FORM RESET
 function formReset() {
@@ -379,7 +380,7 @@ function handleTotal() {
     handlePoints();
 
     showSummary()
-
+    
     return total.toFixed(2);
 
 };
@@ -566,7 +567,7 @@ function generateRooms() {
     
     rooms.push(room0, room1, room2, room3)
     for (idx in rooms) {
-        rooms[idx].price = (rooms[idx].price * 1.05)
+        rooms[idx].price = (rooms[idx].price * 1.05).toFixed(2)
     }
     console.log(rooms)
 
