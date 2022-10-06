@@ -15,11 +15,31 @@
 
 <!-- INCLUDE STYLES --> 
 <%@ include file = "/shared/header-css.jsp" %>
+<style>
+.reg-img-bg {
+  background-image: url("/imgs/provisio-register.jpg");
+  background-color: #cccccc; 
+  height: 650px; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  backdrop-filter: blur(3px);
+}
+.reg-bg {
+  background-color: rgba(80, 123, 242, 0.25);
+  border-radius: 7px;
+  box-shadow: 3px 3px 15px 3px rgba(255, 255, 255, 0.3);
+  padding: 30px 20px;
+  color: white;
+}
+small {
+ color: white;
+}
+</style>
 </head>
 
-<body>
+<body class="reg-img-bg">
 <%@ include file = "/shared/navigation.jsp" %>
-
 <%@ include file ="/shared/user-session.jsp" %>
 
 <div class="container">
@@ -30,25 +50,25 @@
     </div>
   </div>
   <div class="row mt-2">
-    <div class="col-12 bg-light pt-3 pb-3">
+    <div class="col-12 pt-3 pb-3 reg-bg">
       <form action="/register" method="post" name="regform">
         <div class="form-row">
           <div class="col">
             <label for="first-name">First name</label>
             <input type="text" class="form-control" id="first-name" name="first-name" aria-describedby="first-name-help" placeholder="Enter first name" required>
-            <small id="first-name-help" class="form-text text-muted">Your favorite first name.</small>
+            <small id="first-name-help" class="form-text ">Your favorite first name.</small>
           </div>
           <div class="col">
             <label for="last-name">Last name</label>
             <input type="text" class="form-control" id="last-name" name="last-name" aria-describedby="last-name-help" placeholder="Enter last name" required>
-            <small id="last-name-help" class="form-text text-muted">The name on your tax forms.</small>
+            <small id="last-name-help" class="form-text ">The name on your tax forms.</small>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
             <label for="last-name">Email</label>
             <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="Enter email" required>
-            <small id="email-help" class="form-text text-muted">The best none spammy one.</small>
+            <small id="email-help" class="form-text ">The best none spammy one.</small>
           </div>
           <div class="col">
             <!-- HOLDER -->
@@ -58,13 +78,13 @@
           <div class="col">
             <label for="password1">Password</label>
             <input type="password" class="form-control" id="password1" name="password1" onkeyup="CheckPassword()" aria-describedby="password-help" placeholder="Create password" required>
-            <small id="password-help" class="form-text text-muted">8 chars and one uppercase and one lowercase.</small>
+            <small id="password-help" class="form-text ">8 chars and one uppercase and one lowercase.</small>
             <small id="password-feedback" class="form-text"></small>
           </div>
           <div class="col">
             <label for="password2">Password</label>
             <input type="password" class="form-control" id="password2" name="password2" onkeyup="DoubleCheckPassword()" aria-describedby="password-help2" placeholder="Verify password">
-            <small id="password-help2" class="form-text text-muted">Please enter your password again to verify.</small>
+            <small id="password-help2" class="form-text ">Please enter your password again to verify.</small>
             <small id="password-feedback2" class="form-text"></small>
           </div>
         </div>

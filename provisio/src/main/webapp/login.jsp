@@ -16,18 +16,37 @@
 
 <!-- INCLUDE STYLES -->
 <%@ include file="/shared/header-css.jsp"%>
+<style>
+.login-img-bg {
+  background-image: url("/imgs/provisio-login.jpg");
+  background-color: #cccccc; 
+  height: 650px; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  backdrop-filter: blur(3px);
+}
+.login-bg {
+  background-color: rgba(80, 123, 242, 0.25);
+  border-radius: 7px;
+  box-shadow: 3px 3px 15px 3px rgba(255, 255, 255, 0.3);
+  padding: 30px 20px;
+  color: white;
+}
+</style>
+
 </head>
 
-<body>
+<body class="login-img-bg">
 	<%@ include file="/shared/navigation.jsp"%>
 
 	<%@ include file="/shared/user-session.jsp"%>
 
-	<div class="container">
+	<div class="container" style="margin-bottom: 100px">
 		<h2 class="display-4 mb-4 mt-4">Sign-in</h2>
         
 		<div class="row">
-        	<div class="col-md-4 offset-md-4">
+        	<div class="col-md-4 offset-md-4 login-bg">
             	<form action="<%=request.getContextPath()%>/login" method="post">
 					<div class="form-group">
 						<label>Email</label>
